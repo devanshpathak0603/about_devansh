@@ -3,474 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devansh Pathak | Embedded Systems Engineer</title>
+    <meta name="description" content="Portfolio of Devansh Pathak, Embedded Systems & IoT Engineer">
+    <title>Devansh Pathak | Embedded Systems & IoT Enthusiast</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/726/726056.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e90ff;
-            --primary-dark: #1c6dd0;
-            --primary-light: #87cefa;
-            --secondary: #ff8c00;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --accent-dark: #047857;
             --dark: #0f172a;
             --darker: #020617;
             --light: #f8fafc;
-            --gray: #64748b;
-            --bg: linear-gradient(135deg, #0f172a, #1e293b);
-            --card-bg: rgba(30, 41, 59, 0.9);
-            --text: #e2e8f0;
-            --text-light: #94a3b8;
+            --gray: #6b7280;
+            --text: #e5e7eb;
+            --text-light: #9ca3af;
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --card-bg: rgba(31, 41, 55, 0.85);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        
+
         body {
-            background: var(--bg);
+            background: var(--bg-gradient);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
         }
-        
-        /* Fixed Header */
+
+        /* Particle Background */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+        }
+
+        /* Header */
         .main-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(59, 130, 246, 0.1));
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(37, 99, 235, 0.1));
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
-        
+
+        .main-header.scrolled {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.98), rgba(37, 99, 235, 0.15));
+            transform: translateY(0);
+        }
+
         .main-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
         }
-        
+
         .main-header .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
         }
-        
+
+        .main-header .logo:hover {
+            color: var(--primary-light);
+        }
+
+        .main-header .logo i {
+            color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .main-header .logo:hover i {
+            transform: rotate(360deg);
+        }
+
         .main-header nav ul {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
-        
+
         .main-header nav a {
             color: var(--text);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
-            transition: all 0.3s ease;
             position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
         }
-        
+
         .main-header nav a:hover {
             color: var(--primary-light);
         }
-        
+
         .main-header nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--secondary);
+            background: var(--accent);
             transition: width 0.3s ease;
         }
-        
+
         .main-header nav a:hover::after {
             width: 100%;
         }
-        
+
         .hamburger {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--text);
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
-        
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
         /* Main Content */
         .container {
-            max-width: 1100px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 7rem 2rem 3rem;
+            padding: 6rem 2rem 4rem;
         }
-        
+
         /* Profile Section */
         .profile-section {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1), transparent);
+            padding: 3.5rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow-md);
             position: relative;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
-            padding: 2rem;
-            border-radius: 20px;
+            overflow: hidden;
         }
-        
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05), transparent);
+            animation: pulse 10s infinite ease-in-out;
+        }
+
         .profile-container {
             position: relative;
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             margin: 0 auto 2rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid var(--primary);
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
-            animation: glowRing 2s infinite ease-in-out;
+            border: 8px solid var(--primary);
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.9);
+            animation: glowRing 2.5s infinite ease-in-out;
+            transition: transform 0.5s ease;
         }
-        
+
         .profile-container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(59, 130, 246, 0.9);
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 0 50px rgba(37, 99, 235, 1);
         }
-        
+
         .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.7s ease;
         }
-        
+
         .profile-container:hover .profile-photo {
-            transform: scale(1.1);
+            transform: scale(1.2) rotate(-3deg);
         }
-        
+
         h1 {
-            font-size: 3.2rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            font-size: 3.8rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             font-weight: 800;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2.5px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .title {
             color: var(--text-light);
             font-weight: 500;
-            margin-bottom: 2rem;
-            font-size: 1.4rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            font-size: 1.6rem;
+            background: linear-gradient(to right, var(--primary-light), var(--text));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        
+
         .contact-info {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.8rem;
+            gap: 1.5rem;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.2rem;
+            gap: 0.8rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
-            background: linear-gradient(135deg, var(--card-bg), rgba(59, 130, 246, 0.2));
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--card-bg), rgba(37, 99, 235, 0.2));
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .contact-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+            transform: translateY(-8px) scale(1.1);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: var(--shadow-md);
         }
-        
-        .contact-item a {
+
+        .contact-item a, .contact-item span {
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
-        
-        .contact-item:hover a {
+
+        .contact-item:hover a, .contact-item:hover span {
             color: var(--light);
         }
-        
+
         /* Sections */
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 3.5rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(37, 99, 235, 0.2);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s ease;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
         }
-        
+
         section.visible {
             opacity: 1;
             transform: translateY(0);
             animation: bounceIn 0.8s ease-out;
         }
-        
+
         section:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, var(--card-bg), rgba(59, 130, 246, 0.15));
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--card-bg), rgba(37, 99, 235, 0.25));
         }
-        
+
         h2 {
             color: var(--primary);
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 700;
             position: relative;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
-        
-        h2::before {
+
+        h2::after {
             content: '';
             position: absolute;
-            left: -30px;
-            top: 50%;
-            width: 20px;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
             height: 3px;
-            background: var(--secondary);
+            background: var(--accent);
             border-radius: 3px;
         }
-        
+
         .summary {
             font-style: italic;
-            background: rgba(30, 41, 59, 0.7);
-            padding: 1.8rem;
-            border-radius: 12px;
-            line-height: 1.9;
-            border-left: 5px solid var(--primary);
+            background: rgba(31, 41, 55, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            line-height: 2;
+            border-left: 6px solid var(--primary);
+            font-size: 1.15rem;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .skills-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-        
+
         .skill-category {
-            flex: 1;
-            min-width: 220px;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(59, 130, 246, 0.1));
-            padding: 1.8rem;
-            border-radius: 15px;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(37, 99, 235, 0.1));
+            padding: 2.5rem;
+            border-radius: 25px;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .skill-category:hover {
             transform: scale(1.05);
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(59, 130, 246, 0.2));
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(37, 99, 235, 0.2));
+            box-shadow: var(--shadow-md);
         }
-        
+
         .skill-category h3 {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-light);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
-        
+
         ul {
             list-style: none;
         }
-        
+
         li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
-        
+
         li::before {
-            content: '▹';
+            content: '▸';
             position: absolute;
             left: 0;
-            color: var(--secondary);
-            font-size: 1.2rem;
+            color: var(--accent);
+            font-size: 1.4rem;
         }
-        
+
         li:hover {
             color: var(--primary-light);
-            transform: translateX(5px);
+            transform: translateX(10px);
         }
-        
+
         .experience, .project, .education-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1.8rem;
-            border-bottom: 1px dashed rgba(59, 130, 246, 0.3);
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px dashed rgba(37, 99, 235, 0.3);
+            transition: all 0.4s ease;
         }
-        
+
         .experience:last-child, .project:last-child, .education-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
+
         .job-title, .degree {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--text);
         }
-        
+
         .company, .institution {
             color: var(--primary-light);
             font-weight: 600;
+            font-size: 1.3rem;
         }
-        
+
         .date {
             color: var(--gray);
-            font-size: 1rem;
-            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            margin: 0.8rem 0;
         }
-        
+
         .project h3 {
-            margin-bottom: 0.6rem;
-            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
             color: var(--text);
-        }
-        
-        .technologies {
-            font-style: italic;
-            color: var(--text-light);
-            margin-bottom: 0.6rem;
-            font-size: 0.95rem;
-        }
-        
-        .languages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-        
-        .language {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: color 0.3s ease;
         }
-        
+
+        .project:hover h3 {
+            color: var(--primary-light);
+        }
+
+        .technologies {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .language {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
         .language:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 15px rgba(30, 64, 175, 0.4);
+            transform: translateY(-8px) scale(1.15);
+            box-shadow: var(--shadow-md);
         }
-        
+
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--card-bg), rgba(59, 130, 246, 0.1));
-            border-top: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--card-bg), rgba(37, 99, 235, 0.15));
+            border-top: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 5rem 2rem;
             text-align: center;
-            position: relative;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            max-width: 1100px;
+            max-width: 1280px;
             margin: 0 auto;
-            gap: 2rem;
+            gap: 3rem;
         }
-        
+
         .footer-socials {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
-        
+
         .footer-socials a {
             color: var(--text);
-            font-size: 2rem;
-            transition: all 0.3s ease;
+            font-size: 2.5rem;
+            transition: all 0.4s ease;
         }
-        
+
         .footer-socials a:hover {
-            color: var(--secondary);
-            transform: scale(1.2) rotate(10deg);
+            color: var(--accent);
+            transform: scale(1.3) rotate(10deg);
         }
-        
+
         .footer-contact {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 500;
         }
-        
+
         .footer-contact a {
             color: var(--primary-light);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
-        
+
         .footer-contact a:hover {
-            color: var(--secondary);
+            color: var(--accent);
             text-decoration: underline;
         }
-        
+
         .footer-copyright {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
             color: var(--text-light);
         }
-        
+
         .back-to-top {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             right: 30px;
             background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.5);
-            transition: all 0.3s ease;
-            z-index: 998;
-            opacity: 0;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-        }
-        
-        /* Chatbot Styles */
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             width: 60px;
             height: 60px;
@@ -478,173 +535,228 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.6);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            z-index: 998;
+            opacity: 0;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: scale(1.15) rotate(360deg);
+        }
+
+        /* Chatbot */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
             z-index: 1000;
-            animation: bounce 2s infinite;
+            animation: bounce 2.5s infinite;
         }
-        
+
         .chatbot-toggle:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.8);
+            transform: scale(1.2);
+            box-shadow: var(--shadow-lg);
         }
-        
+
         .chatbot-container {
             position: fixed;
-            bottom: 100px;
+            bottom: 120px;
             right: 30px;
-            width: 380px;
-            max-height: 550px;
+            width: 420px;
+            max-height: 650px;
             background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
             overflow: hidden;
             display: none;
             flex-direction: column;
             z-index: 999;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(37, 99, 235, 0.3);
         }
-        
+
         .chatbot-container.active {
             display: flex;
             animation: slideInChat 0.5s ease forwards;
         }
-        
+
         .chatbot-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 1.8rem;
             color: white;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .chatbot-close {
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
-        
+
         .chatbot-close:hover {
-            transform: rotate(90deg);
+            transform: rotate(180deg);
         }
-        
+
         .chatbot-body {
             flex: 1;
-            padding: 1.5rem;
+            padding: 2rem;
             overflow-y: auto;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(17, 24, 39, 0.98);
         }
-        
+
         .chat-message {
-            margin-bottom: 1.2rem;
-            padding: 1rem;
-            border-radius: 15px;
-            max-width: 85%;
-            animation: slideInMessage 0.3s ease;
+            margin-bottom: 1.8rem;
+            padding: 1.5rem;
+            border-radius: 20px;
+            max-width: 80%;
+            animation: slideInMessage 0.4s ease;
+            font-size: 1.1rem;
+            position: relative;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .chat-message.bot {
             background: var(--primary);
             color: white;
             margin-left: auto;
         }
-        
+
         .chat-message.user {
             background: var(--text-light);
             color: var(--dark);
             margin-right: auto;
         }
-        
+
         .chat-message.typing {
             background: transparent;
             color: var(--text-light);
             font-style: italic;
             margin-left: auto;
         }
-        
+
+        .chat-message.typing::after {
+            content: '•••';
+            display: inline-block;
+            animation: typing 1s infinite;
+        }
+
         .chatbot-input {
             display: flex;
-            padding: 1.2rem;
+            padding: 1.8rem;
             background: var(--card-bg);
-            border-top: 1px solid rgba(59, 130, 246, 0.3);
+            border-top: 1px solid rgba(37, 99, 235, 0.3);
         }
-        
+
         .chatbot-input input {
             flex: 1;
-            padding: 1rem;
+            padding: 1.3rem;
             border: none;
-            border-radius: 25px;
-            background: rgba(30, 41, 59, 0.8);
+            border-radius: 30px;
+            background: rgba(31, 41, 55, 0.9);
             color: var(--text);
             outline: none;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
-        
+
         .chatbot-input input:focus {
-            background: rgba(59, 130, 246, 0.3);
+            background: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
         }
-        
+
         .chatbot-input button {
-            background: var(--secondary);
+            background: var(--accent);
             border: none;
             color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 25px;
-            margin-left: 0.8rem;
+            padding: 1.3rem 2rem;
+            border-radius: 30px;
+            margin-left: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .chatbot-input button:hover {
-            background: var(--primary-dark);
+            background: var(--accent-dark);
             transform: scale(1.1);
+            box-shadow: var(--shadow-md);
         }
-        
+
         /* Animations */
         @keyframes glowRing {
-            0%, 100% { box-shadow: 0 0 25px rgba(59, 130, 246, 0.7); }
-            50% { box-shadow: 0 0 35px rgba(59, 130, 246, 1); }
+            0%, 100% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.8); }
+            50% { box-shadow: 0 0 60px rgba(37, 99, 235, 1); }
         }
-        
+
         @keyframes bounceIn {
-            0% { opacity: 0; transform: translateY(50px) scale(0.9); }
-            60% { opacity: 1; transform: translateY(-10px) scale(1.02); }
+            0% { opacity: 0; transform: translateY(60px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-15px) scale(1.05); }
             100% { transform: translateY(0) scale(1); }
         }
-        
+
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
-        
+
         @keyframes slideInChat {
-            from { opacity: 0; transform: translateY(50px); }
+            from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         @keyframes slideInMessage {
-            from { opacity: 0; transform: translateX(20px); }
+            from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
         }
-        
+
+        @keyframes typing {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.1; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 6rem 1.5rem 2rem;
+                padding: 5rem 1.5rem 3rem;
             }
-            
+
             .main-header .container {
                 padding: 1rem 1.5rem;
             }
-            
+
             .main-header nav {
                 display: none;
                 position: absolute;
@@ -652,222 +764,288 @@
                 left: 0;
                 width: 100%;
                 background: var(--card-bg);
-                padding: 1rem;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
             }
-            
+
             .main-header nav.active {
                 display: block;
             }
-            
+
             .main-header nav ul {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1.8rem;
                 text-align: center;
             }
-            
+
             .hamburger {
                 display: block;
             }
-            
+
             h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
-            
+
             section {
-                padding: 2rem;
+                padding: 3rem;
             }
-            
+
             .skills-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
-            
+
             .contact-item {
-                padding: 0.6rem 1rem;
+                padding: 0.8rem 1.5rem;
             }
-            
+
             .chatbot-container {
-                width: 90%;
-                right: 5%;
-                bottom: 80px;
+                width: 95%;
+                right: 2.5%;
+                bottom: 100px;
             }
-            
+
             .chatbot-toggle {
                 bottom: 20px;
                 right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
             }
-            
+
             .footer-content {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 3rem;
             }
-            
+
             .back-to-top {
-                bottom: 80px;
+                bottom: 90px;
                 right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
     </style>
 </head>
 <body>
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
     <!-- Main Header -->
-    <header class="main-header">
+    <header class="main-header" role="banner">
         <div class="container">
-            <div class="logo">Devansh Pathak</div>
-            <nav>
+            <div class="logo" aria-label="Devansh Pathak's logo">
+                <i class="fas fa-microchip"></i> Devansh Pathak
+            </div>
+            <nav aria-label="Main navigation">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" aria-current="page">Home</a></li>
                     <li><a href="#summary">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <div class="container">
-        <section class="profile-section">
+    <main class="container" role="main">
+        <section class="profile-section" id="contact" aria-labelledby="profile-heading">
             <div class="profile-container">
                 <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" 
-                     alt="Devansh Pathak" class="profile-photo">
+                     alt="Devansh Pathak's profile photo" class="profile-photo">
             </div>
-            <h1>Devansh Pathak</h1>
-            <div class="title">Embedded Systems & IoT Engineer</div>
-            <div class="contact-info" id="contact">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+            <h1 id="profile-heading">Devansh Pathak</h1>
+            <div class="title">Embedded Systems & IoT Enthusiast</div>
+            <div class="contact-info">
+                <div class="contact-item" aria-label="Email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     <a href="mailto:er.devanshpathak@gmail.com">er.devanshpathak@gmail.com</a>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                <div class="contact-item" aria-label="Phone">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <a href="tel:+919818958116">+91 9818958116</a>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Delhi NCR, India</span>
+                <div class="contact-item" aria-label="Location">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span>Noida, India</span>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://linkedin.com/in/workwithdevansh" target="_blank">workwithdevansh</a>
+                <div class="contact-item" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    <a href="https://linkedin.com/in/workwithdevansh" target="_blank" rel="noopener">workwithdevansh</a>
                 </div>
             </div>
         </section>
 
-        <section id="summary">
-            <h2><i class="fas fa-user-tie"></i> Professional Summary</h2>
+        <section id="summary" aria-labelledby="summary-heading">
+            <h2 id="summary-heading"><i class="fas fa-user-tie"></i> Professional Summary</h2>
             <p class="summary">
-                Embedded Systems and IoT enthusiast with hands-on experience in microcontroller programming, 
-                sensor integration, and hardware-software interfacing. Proficient in Arduino, ESP8266, Raspberry Pi and 
-                communication protocols (I2C, UART, SPI). Passionate about building real-time hardware solutions.
+                Passionate and detail-oriented Embedded Systems and IoT enthusiast with hands-on experience in designing, developing, and deploying innovative solutions. Skilled in microcontroller programming, sensor integration, and various communication protocols. Seeking an internship to leverage my technical expertise and creativity in a dynamic team environment. Proven ability to solve complex problems, a quick learner, and committed to continuous improvement in the field of embedded systems and IoT.
             </p>
         </section>
 
-        <section id="languages">
-            <h2><i class="fas fa-language"></i> Languages</h2>
+        <section id="languages" aria-labelledby="languages-heading">
+            <h2 id="languages-heading"><i class="fas fa-language"></i> Languages</h2>
             <div class="languages">
-                <div class="language">
+                <div class="language" aria-label="English proficiency">
                     <i class="fas fa-check-circle"></i> English (Read/Write)
                 </div>
-                <div class="language">
-                    <i class="fas fa-check-circle"></i> Punjabi (Read/Write)
-                </div>
-                <div class="language">
+                <div class="language" aria-label="Hindi proficiency">
                     <i class="fas fa-check-circle"></i> Hindi (Read/Write)
+                </div>
+                <div class="language" aria-label="Punjabi-Dogri proficiency">
+                    <i class="fas fa-check-circle"></i> Punjabi-Dogri (Read/Write)
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
             <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Languages & Programming</h3>
+                <div class="skill-category" aria-labelledby="programming-skills">
+                    <h3 id="programming-skills"><i class="fas fa-code"></i> Languages & Programming</h3>
                     <ul>
                         <li>Embedded C</li>
                         <li>Python</li>
-                        <li>C/C++</li>
                         <li>Basic Data Structures</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-microchip"></i> Microcontrollers</h3>
+                <div class="skill-category" aria-labelledby="microcontrollers-skills">
+                    <h3 id="microcontrollers-skills"><i class="fas fa-microchip"></i> Microcontrollers & Platforms</h3>
                     <ul>
                         <li>Arduino Uno</li>
                         <li>ESP8266</li>
-                        <li>Raspberry Pi</li>
+                        <li>ESP32</li>
+                        <li>Raspberry Pi (GPIO, Linux, Python)</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Hardware</h3>
+                <div class="skill-category" aria-labelledby="hardware-skills">
+                    <h3 id="hardware-skills"><i class="fas fa-tools"></i> Hardware & Tools</h3>
                     <ul>
                         <li>Circuit Design</li>
-                        <li>Soldering</li>
                         <li>Project Design</li>
+                        <li>Soldering</li>
                         <li>Hardware Testing</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-network-wired"></i> Protocols</h3>
+                <div class="skill-category" aria-labelledby="protocols-skills">
+                    <h3 id="protocols-skills"><i class="fas fa-network-wired"></i> Communication Protocols</h3>
                     <ul>
                         <li>I2C</li>
                         <li>UART</li>
                         <li>SPI</li>
+                        <li>Wi-Fi & Bluetooth (ESP32)</li>
+                        <li>MQTT & HTTP</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-project-diagram"></i> Others</h3>
+                <div class="skill-category" aria-labelledby="iot-skills">
+                    <h3 id="iot-skills"><i class="fas fa-project-diagram"></i> IoT & Others</h3>
                     <ul>
+                        <li>Linux-based IoT Device Control</li>
                         <li>Sensor Integration</li>
-                        <li>Real-time Data Acquisition</li>
                         <li>IoT Development</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        <section id="experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading"><i class="fas fa-briefcase"></i> Professional Experience</h2>
             <div class="experience">
-                <div class="job-title">Trainee</div>
+                <div class="job-title">Trainee Intern</div>
                 <div class="company">JKSD Infotech Pvt. Ltd, Noida</div>
                 <div class="date">May 2024 – July 2024</div>
                 <ul>
-                    <li>Developed IoT projects with sensor integration and data acquisition</li>
-                    <li>Gained hands-on experience in microcontroller programming</li>
+                    <li>Completed hands-on training in Embedded Systems and IoT, gaining expertise in microcontroller programming, sensor integration, and IoT communication protocols.</li>
+                    <li>Developed practical projects to demonstrate proficiency in hardware-software interfacing and real-time data acquisition.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading"><i class="fas fa-project-diagram"></i> Projects</h2>
             <div class="project">
-                <h3>Ultrasonic Radar System</h3>
-                <div class="technologies">Arduino Uno, HC-SR04 Ultrasonic Sensor, Micro Servo SG90</div>
-                <p>Radar-style system that detects objects within range using an ultrasonic sensor and visualizes their position via a rotating servo.</p>
+                <h3><i class="fas fa-home"></i> Smart Home Automation</h3>
+                <div class="technologies">ESP32, Blynk, Relays, Wi-Fi</div>
+                <p>Designed and deployed a Wi-Fi-based home automation system using ESP32 and Blynk app to control lights and appliances remotely via smartphone.</p>
             </div>
             <div class="project">
-                <h3>Fire Detection Alarm</h3>
+                <h3><i class="fas fa-thermometer-half"></i> IoT Weather Station</h3>
+                <div class="technologies">ESP32, DHT11, Firebase, Wi-Fi</div>
+                <p>Built a real-time temperature and humidity monitoring system using ESP32, DHT11 sensor, and Firebase for cloud data logging and visualization.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-camera"></i> Raspberry Pi Surveillance Camera</h3>
+                <div class="technologies">Raspberry Pi, Pi Camera, OpenCV, Python</div>
+                <p>Developed a motion-detection surveillance system with real-time email alerts and local video storage using Raspberry Pi and OpenCV.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-microphone"></i> Voice Controlled Home Appliances</h3>
+                <div class="technologies">ESP32, Google Assistant, IFTTT, Wi-Fi</div>
+                <p>Integrated ESP32 with Google Assistant via IFTTT and webhook to enable voice-controlled appliances like fan, bulb, and plug.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-chalkboard"></i> Smart Notice Board</h3>
+                <div class="technologies">Raspberry Pi, 16x2 LCD, Python, LAN</div>
+                <p>Created a web-controlled digital notice board using Raspberry Pi and LCD display to remotely post announcements over LAN.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-radar"></i> Ultrasonic Radar System</h3>
+                <div class="technologies">Arduino Uno, HC-SR04, SG90 Servo</div>
+                <p>Developed a radar-style system to detect objects using an ultrasonic sensor and visualize positions via a rotating servo.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-fire"></i> Fire Detection Alarm</h3>
                 <div class="technologies">Arduino, Flame Sensor, Piezo Buzzer</div>
-                <p>Detects fire and triggers an alarm using a flame sensor and buzzer for safety alerts in enclosed spaces.</p>
+                <p>Built a fire detection system with a flame sensor and buzzer to trigger safety alerts in enclosed spaces.</p>
             </div>
             <div class="project">
-                <h3>Sound-Controlled LED</h3>
-                <div class="technologies">Arduino, KY-037 Sound Sensor Module</div>
-                <p>Lights up an LED when a certain sound threshold is crossed, like clapping—basic demonstration of sound-activated systems.</p>
+                <h3><i class="fas fa-volume-up"></i> Sound-Controlled LED</h3>
+                <div class="technologies">Arduino, KY-037 Sound Sensor</div>
+                <p>Designed a system to light up an LED when a sound threshold (e.g., clapping) is detected, demonstrating sound-activated control.</p>
             </div>
             <div class="project">
-                <h3>IR Remote-Controlled LED</h3>
-                <div class="technologies">Arduino, IR Receiver Module, Remote Control</div>
-                <p>Enables LED toggling using an IR remote, showcasing remote signal decoding and control.</p>
+                <h3><i class="fas fa-remote"></i> IR Remote-Controlled LED</h3>
+                <div class="technologies">Arduino, IR Receiver, Remote Control</div>
+                <p>Enabled LED toggling using an IR remote, showcasing remote signal decoding and control.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-hand-paper"></i> Obstacle Avoidance System</h3>
+                <div class="technologies">Arduino, KY-033 Line Tracking Sensor</div>
+                <p>Created a system to detect and avoid obstacles using a line tracking sensor for autonomous navigation.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-traffic-light"></i> Traffic Control System</h3>
+                <div class="technologies">Arduino, LEDs</div>
+                <p>Designed a traffic light simulation system using LEDs to manage traffic flow with Arduino.</p>
+            </div>
+            <div class="project">
+                <h3><i class="fas fa-lightbulb"></i> LED Control with TTP223</h3>
+                <div class="technologies">Arduino, TTP223 Sensor</div>
+                <p>Developed a touch-based LED control system using the TTP223 sensor module for interactive lighting.</p>
             </div>
         </section>
 
-        <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <section id="education" aria-labelledby="education-heading">
+            <h2 id="education-heading"><i class="fas fa-graduation-cap"></i> Education</h2>
             <div class="education-item">
                 <div class="degree">B.Tech in Electrical & Computer Engineering</div>
-                <div class="institution">ABES Engineering College (AKTU Lucknow)</div>
-                <div class="date">2026</div>
+                <div class="institution">ABES Engineering College, Ghaziabad (AKTU Lucknow)</div>
+                <div class="date">Expected 2026</div>
             </div>
             <div class="education-item">
                 <div class="degree">Senior Secondary (CBSE)</div>
@@ -876,29 +1054,30 @@
             </div>
         </section>
 
-        <section id="certifications">
-            <h2><i class="fas fa-certificate"></i> Certifications</h2>
+        <section id="certifications" aria-labelledby="certifications-heading">
+            <h2 id="certifications-heading"><i class="fas fa-certificate"></i> Certifications</h2>
             <ul>
-                <li>Summer Industrial Training in IoT and Embedded Systems – JKSD Infotech Pvt. Ltd, 2024</li>
+                <li>Summer Industrial Training in IoT and Embedded Systems – JKSD Infotech Pvt. Ltd, Noida, 2024</li>
                 <li>AIR 27 – National Entrepreneurship Challenge, IIT Bombay, 2023</li>
-                <li>Mastering Data Structures & Algorithms using C and C++ – Udemy, 2023</li>
+                <li>Mastering Data Structures & Algorithms using C and C++ – Udemy</li>
             </ul>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-socials">
-                <a href="https://linkedin.com/in/workwithdevansh" target="_blank" title="LinkedIn">
+                <a href="https://linkedin.com/in/workwithdevansh" target="_blank" rel="noopener" title="LinkedIn" aria-label="Visit LinkedIn profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="#" target="_blank" title="GitHub (Add your GitHub link)">
+                <a href="#" target="_blank" rel="noopener" title="GitHub (Add your GitHub link)" aria-label="Visit GitHub profile">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
             <div class="footer-contact">
-                Contact: <a href="mailto:er.devanshpathak@gmail.com">er.devanshpathak@gmail.com</a>
+                Contact: <a href="mailto:er.devanshpathak@gmail.com" aria-label="Email Devansh">er.devanshpathak@gmail.com</a> | 
+                <a href="tel:+919818958116" aria-label="Call Devansh">+91 9818958116</a>
             </div>
         </div>
         <div class="footer-copyright">
@@ -907,30 +1086,90 @@
     </footer>
 
     <!-- Back to Top -->
-    <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Chatbot -->
-    <div class="chatbot-toggle" title="Devansh's Chatbot">
+    <button class="chatbot-toggle" aria-label="Toggle chatbot">
         <i class="fas fa-robot"></i>
-    </div>
-    <div class="chatbot-container">
-        <div class="chatbot-header">
+    </button>
+    <div class="chatbot-container" role="dialog" aria-labelledby="chatbot-header">
+        <div class="chatbot-header" id="chatbot-header">
             <span>Devansh's Chatbot</span>
-            <button class="chatbot-close"><i class="fas fa-times"></i></button>
+            <button class="chatbot-close" aria-label="Close chatbot">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div class="chatbot-body">
+        <div class="chatbot-body" aria-live="polite">
             <div class="chat-message bot">
-                Hey! I’m Devansh’s Chatbot, powered by xAI tech. Ask me about Devansh’s work or anything else—let’s chat!
+                Hey! I’m Devansh’s Chatbot, powered by xAI tech. Ask me about Devansh’s projects, skills, or anything else—let’s dive in!
             </div>
         </div>
         <div class="chatbot-input">
-            <input type="text" placeholder="Ask me anything...">
-            <button><i class="fas fa-paper-plane"></i></button>
+            <input type="text" placeholder="Ask me anything..." aria-label="Chatbot input">
+            <button aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
     <script>
-        // Simulated Grok-like responses for "Devansh's Chatbot"
+        // Particle Background (Simple Implementation)
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particlesArray = [];
+        const numberOfParticles = 50;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Chatbot Responses
         function getChatbotResponse(input) {
             input = input.toLowerCase().trim();
             const now = new Date();
@@ -940,50 +1179,76 @@
             } else if (input.includes("hello") || input.includes("hi")) {
                 return "Hey there! How can Devansh’s Chatbot assist you today?";
             } else if (input.includes("who are you") || input.includes("what are you")) {
-                return "I’m Devansh’s Chatbot, built with xAI’s Grok tech. I’m here to answer your questions with a dash of wit and real-time flair!";
+                return "I’m Devansh’s Chatbot, built with xAI’s Grok tech. I’m here to answer your questions about Devansh’s work with a dash of wit!";
             } else if (input.includes("devansh") && input.includes("about")) {
-                return "Devansh Pathak is an Embedded Systems & IoT Engineer. He’s into microcontrollers, sensors, and real-time solutions. Want specifics on his skills or projects?";
+                return "Devansh Pathak is a passionate Embedded Systems & IoT enthusiast from Noida, skilled in microcontrollers, sensor integration, and IoT protocols. Want details on his projects or skills?";
             } else if (input.includes("project") || input.includes("projects")) {
-                if (input.includes("ultrasonic")) {
-                    return "The Ultrasonic Radar System uses an Arduino Uno, HC-SR04 sensor, and SG90 servo to detect and visualize objects. Cool, right? Want more details?";
+                if (input.includes("smart home")) {
+                    return "The Smart Home Automation project uses ESP32 and Blynk to control lights and appliances remotely via Wi-Fi. Pretty smart, huh? Want more details?";
+                } else if (input.includes("weather")) {
+                    return "The IoT Weather Station monitors temperature and humidity in real-time using ESP32, DHT11, and Firebase for cloud logging. Curious about its setup?";
+                } else if (input.includes("surveillance")) {
+                    return "The Raspberry Pi Surveillance Camera uses OpenCV for motion detection, sending email alerts and storing videos locally. Want to know how it works?";
+                } else if (input.includes("voice")) {
+                    return "Voice Controlled Home Appliances integrates ESP32 with Google Assistant via IFTTT for voice-activated fans and lights. Cool, right?";
+                } else if (input.includes("notice board")) {
+                    return "The Smart Notice Board uses Raspberry Pi and a 16x2 LCD to display web-controlled announcements over LAN. Interested in its tech stack?";
+                } else if (input.includes("ultrasonic")) {
+                    return "The Ultrasonic Radar System uses Arduino Uno, HC-SR04, and SG90 servo to detect objects and visualize their position. Want more info?";
                 } else if (input.includes("fire")) {
-                    return "The Fire Detection Alarm uses a flame sensor and buzzer with Arduino for safety alerts. Simple yet effective! Anything else you’re curious about?";
+                    return "The Fire Detection Alarm uses Arduino and a flame sensor to trigger a buzzer for safety. Simple yet effective! More questions?";
                 } else if (input.includes("sound")) {
-                    return "The Sound-Controlled LED lights up via a KY-037 sensor when you clap—neat demo of sound activation. What else interests you?";
+                    return "The Sound-Controlled LED lights up via a KY-037 sensor when triggered by claps. Neat demo of sound activation! What else?";
                 } else if (input.includes("ir") || input.includes("remote")) {
-                    return "The IR Remote-Controlled LED toggles with an IR receiver and Arduino. It’s all about remote signal magic! More questions?";
+                    return "The IR Remote-Controlled LED toggles with an IR receiver and Arduino. It’s all about remote signal magic! More details?";
+                } else if (input.includes("obstacle")) {
+                    return "The Obstacle Avoidance System uses a KY-033 sensor for autonomous navigation with Arduino. Want to explore its logic?";
+                } else if (input.includes("traffic")) {
+                    return "The Traffic Control System simulates traffic lights with LEDs and Arduino. Interested in its code?";
+                } else if (input.includes("ttp223")) {
+                    return "The LED Control with TTP223 uses a touch sensor for interactive lighting with Arduino. Curious about its design?";
                 } else {
-                    return "Devansh’s projects include an Ultrasonic Radar, Fire Detection Alarm, Sound-Controlled LED, and IR Remote LED. Which one do you want to dive into?";
+                    return "Devansh’s projects include Smart Home Automation, IoT Weather Station, Surveillance Camera, and more. Pick one to dive into!";
                 }
             } else if (input.includes("skill") || input.includes("skills")) {
                 if (input.includes("programming")) {
-                    return "Devansh rocks Embedded C, Python, and C/C++—perfect for IoT and microcontrollers. Want to know more?";
+                    return "Devansh is proficient in Embedded C, Python, and basic Data Structures—ideal for IoT and embedded systems. Want more?";
                 } else if (input.includes("microcontroller")) {
-                    return "He’s proficient with Arduino Uno, ESP8266, and Raspberry Pi. Which one’s your favorite?";
+                    return "He’s skilled with Arduino Uno, ESP8266, ESP32, and Raspberry Pi. Which platform are you curious about?";
+                } else if (input.includes("protocol")) {
+                    return "Devansh knows I2C, UART, SPI, MQTT, and HTTP protocols, plus Wi-Fi and Bluetooth on ESP32. Want specifics?";
                 } else {
-                    return "Devansh’s skills span Embedded C, Python, microcontrollers like Arduino, and protocols like I2C. Pick a topic—I’ll break it down!";
+                    return "Devansh’s skills cover Embedded C, Python, ESP32, Raspberry Pi, and protocols like MQTT. Pick a topic for details!";
                 }
             } else if (input.includes("time") || input.includes("date")) {
-                return `As of my last update, it’s ${now.toLocaleTimeString()} on ${now.toLocaleDateString()} (April 11, 2025). Time flies, huh? What’s next?`;
+                return `It’s ${now.toLocaleTimeString()} on ${now.toLocaleDateString()} (June 24, 2025). What’s next?`;
             } else if (input.includes("real-time") || input.includes("search")) {
-                return "I can simulate real-time info! As of April 11, 2025, I’d fetch the latest on IoT trends or X posts if connected. Try asking about Devansh’s work instead!";
+                return "I can simulate real-time info! As of June 2025, I’d fetch IoT trends or X posts if connected. Try asking about Devansh’s projects!";
             } else if (input.includes("analyze") || input.includes("profile")) {
-                return "I’d love to analyze Devansh’s LinkedIn or X profile, but here I’ll just say: he’s a tech-savvy engineer from Delhi NCR. Want his contact details?";
+                return "Devansh’s LinkedIn showcases his Embedded & IoT expertise. Want his contact info or project details instead?";
             } else if (input.includes("xai") || input.includes("grok")) {
-                return "I’m powered by xAI’s Grok tech—well, a simulated version here. The real me can search the web and X in real-time. Ask about Devansh or test my wit!";
+                return "I’m powered by xAI’s Grok tech (simulated here). Ask about Devansh’s projects or test my knowledge!";
             } else {
-                return "Good one! I don’t have real-time web access here, but I’ll give you a Grok-style answer: " +
-                       (input.includes("why") ? "Because the universe loves a good puzzle!" :
-                        input.includes("what") ? "Depends—give me a nudge with more context!" :
-                        "I’d search X for the latest, but for now, let’s chat about Devansh’s stuff!");
+                return "Nice try! I’d search X for the latest, but let’s focus on Devansh—ask about his IoT projects or skills!";
             }
         }
 
-        // Scroll animations and back-to-top
-        document.addEventListener('DOMContentLoaded', function() {
+        // UI Interactions and Animations
+        document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const backToTop = document.querySelector('.back-to-top');
-            
+            const header = document.querySelector('.main-header');
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.main-header nav');
+            const contactItems = document.querySelectorAll('.contact-item');
+            const chatbotToggle = document.querySelector('.chatbot-toggle');
+            const chatbotContainer = document.querySelector('.chatbot-container');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotInput = document.querySelector('.chatbot-input input');
+            const chatbotButton = document.querySelector('.chatbot-input button');
+            const chatbotBody = document.querySelector('.chatbot-body');
+
+            // Section Animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -992,89 +1257,92 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             sections.forEach(section => observer.observe(section));
-            
+
+            // Scroll Effects
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
                     backToTop.classList.add('visible');
+                    header.classList.add('scrolled');
                 } else {
                     backToTop.classList.remove('visible');
+                    header.classList.remove('scrolled');
                 }
             });
-            
+
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-            
-            const contactItems = document.querySelectorAll('.contact-item');
+
+            // Contact Item Interactions
             contactItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    item.style.animation = 'bounce 0.5s ease';
+                item.addEventListener('mousedown', () => {
+                    item.style.transform = 'scale(0.95)';
+                });
+                item.addEventListener('mouseup', () => {
+                    item.style.transform = 'scale(1)';
                 });
                 item.addEventListener('mouseleave', () => {
-                    item.style.animation = 'none';
+                    item.style.transform = 'scale(1)';
                 });
             });
-            
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('.main-header nav');
+
+            // Hamburger Menu
             hamburger.addEventListener('click', () => {
                 nav.classList.toggle('active');
+                hamburger.querySelector('i').classList.toggle('fa-bars');
+                hamburger.querySelector('i').classList.toggle('fa-times');
             });
-            
-            // Chatbot functionality
-            const chatbotToggle = document.querySelector('.chatbot-toggle');
-            const chatbotContainer = document.querySelector('.chatbot-container');
-            const chatbotClose = document.querySelector('.chatbot-close');
-            const chatbotInput = document.querySelector('.chatbot-input input');
-            const chatbotButton = document.querySelector('.chatbot-input button');
-            const chatbotBody = document.querySelector('.chatbot-body');
-            
+
+            // Chatbot Functionality
             chatbotToggle.addEventListener('click', () => {
                 chatbotContainer.classList.toggle('active');
+                if (chatbotContainer.classList.contains('active')) {
+                    chatbotInput.focus();
+                }
             });
-            
+
             chatbotClose.addEventListener('click', () => {
                 chatbotContainer.classList.remove('active');
             });
-            
+
             chatbotButton.addEventListener('click', sendMessage);
             chatbotInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') sendMessage();
             });
-            
+
             function sendMessage() {
                 const message = chatbotInput.value.trim();
                 if (!message) return;
-                
+
                 const userMessage = document.createElement('div');
-                userMessage.className = 'chat-message user';
+                userMessage.classList.add('chat-message', 'user');
                 userMessage.textContent = message;
                 chatbotBody.appendChild(userMessage);
-                
+
                 const typingMessage = document.createElement('div');
-                typingMessage.className = 'chat-message typing';
-                typingMessage.textContent = 'Devansh’s Chatbot is thinking...';
+                typingMessage.classList.add('chat-message', 'typing');
+                typingMessage.textContent = 'Devansh’s Chatbot is thinking';
                 chatbotBody.appendChild(typingMessage);
                 chatbotBody.scrollTop = chatbotBody.scrollHeight;
-                
+
                 setTimeout(() => {
                     chatbotBody.removeChild(typingMessage);
                     const botMessage = document.createElement('div');
-                    botMessage.className = 'chat-message bot';
+                    botMessage.classList.add('chat-message', 'bot');
                     botMessage.textContent = getChatbotResponse(message);
                     chatbotBody.appendChild(botMessage);
                     chatbotBody.scrollTop = chatbotBody.scrollHeight;
-                }, 1000);
-                
+                }, 1200);
+
                 chatbotInput.value = '';
             }
         });
 
+        // Fallback for IntersectionObserver
         if (!('IntersectionObserver' in window)) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.classList.add('visible'));
+            document.querySelectorAll('section').forEach(section => section.classList.add('visible'));
         }
     </script>
 </body>
