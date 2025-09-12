@@ -3,218 +3,788 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Devansh Pathak, Embedded Systems & IoT Enthusiast">
-  <title>Devansh Pathak | Embedded Systems & IoT Enthusiast</title>
+  <meta name="description" content="Portfolio of Devansh Pathak, an Embedded Systems & IoT Engineer specializing in Industry 4.0 solutions.">
+  <title>Devansh Pathak | Embedded Systems & IoT</title>
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/726/726056.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* -------------------- COLORS & BASE -------------------- */
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --primary-light: #60a5fa;
-      --secondary: #f59e0b;
-      --accent: #10b981;
-      --accent-dark: #047857;
-      --dark: #0f172a;
-      --darker: #020617;
-      --light: #f8fafc;
-      --gray: #6b7280;
-      --text: #e5e7eb;
-      --text-light: #9ca3af;
-      --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
-      --card-bg: rgba(31, 41, 55, 0.85);
+      --bg-color: #0d1117;
+      --card-bg-color: #161b22;
+      --text-color: #e6edf3;
+      --light-text-color: #8b949e;
+      --primary-color: #58a6ff;
+      --secondary-color: #8b949e;
+      --accent-color: #58a6ff;
+      --link-hover-color: #79c0ff;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
-    body{background:var(--bg-gradient);color:var(--text);line-height:1.7;overflow-x:hidden;min-height:100vh;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-color), #21262d);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: var(--primary-color); }
+    a:hover { color: var(--link-hover-color); transition: color 0.3s ease; }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      padding: 5rem 0;
+    }
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
 
-    /* -------------------- HEADER -------------------- */
-    .main-header{position:fixed;top:0;left:0;width:100%;background:rgba(31,41,55,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(37,99,235,0.2);z-index:1000;}
-    .main-header .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1280px;margin:0 auto;}
-    .logo{font-size:1.8rem;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:.5rem;}
-    nav ul{display:flex;gap:2rem;list-style:none;}
-    nav a{color:var(--text);text-decoration:none;font-weight:500;position:relative;}
-    nav a:hover{color:var(--primary-light);}
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease-in-out;
+    }
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo i {
+      color: var(--primary-color);
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-weight: 500;
+      position: relative;
+      padding: 0.25rem 0;
+      color: var(--light-text-color);
+    }
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    .nav-toggle { display: none; }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .nav-toggle { display: block; }
+    }
 
-    /* -------------------- LAYOUT -------------------- */
-    .container{max-width:1280px;margin:0 auto;padding:6rem 2rem 4rem;}
-    section{margin-bottom:5rem;background:var(--card-bg);padding:3rem;border-radius:20px;}
-    h2{color:var(--primary);margin-bottom:2rem;font-size:2rem;font-weight:700;display:flex;align-items:center;gap:.6rem;}
-    h3{color:var(--primary-light);margin-bottom:1rem;}
+    .hero {
+      text-align: center;
+      padding-top: 8rem;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .profile-img-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid var(--primary-color);
+      margin-bottom: 2rem;
+      box-shadow: var(--box-shadow);
+      animation: pulse 2s infinite ease-in-out;
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--light-text-color);
+      margin-bottom: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--primary-color);
+      transform: translateY(-5px);
+    }
 
-    /* -------------------- PROFILE -------------------- */
-    .profile-section{text-align:center;padding:3rem;border-radius:20px;}
-    .profile-container{width:180px;height:180px;margin:0 auto 1.5rem;border-radius:50%;overflow:hidden;border:6px solid var(--primary);}
-    .profile-photo{width:100%;height:100%;object-fit:cover;}
-    h1{font-size:2.5rem;background:linear-gradient(to right,var(--primary),var(--accent));-webkit-background-clip:text;color:transparent;}
-    .title{color:var(--text-light);margin-bottom:1rem;}
+    .card {
+      background-color: var(--card-bg-color);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
 
-    /* -------------------- SKILLS -------------------- */
-    .skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
-    ul{list-style:none;}
-    li{margin-bottom:.6rem;}
+    .summary-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .summary-text b {
+      color: var(--accent-color);
+    }
 
-    /* -------------------- EXPERIENCE -------------------- */
-    .experience{margin-bottom:2rem;}
-    .job-title{font-weight:700;font-size:1.3rem;}
-    .company{color:var(--primary-light);font-weight:600;}
-    .date{color:var(--gray);margin:.5rem 0;}
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skills-grid .card {
+      text-align: center;
+    }
+    .skills-grid h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .skills-grid h3 i {
+      color: var(--primary-color);
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .skill-list li {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--light-text-color);
+      transition: background 0.3s ease;
+    }
+    .skill-list li:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: var(--card-bg-color);
+      border: 4px solid var(--primary-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+    .timeline-content {
+      padding: 2rem;
+      background-color: var(--card-bg-color);
+      position: relative;
+      border-radius: 8px;
+    }
+    .timeline-content h3 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content .company, .timeline-content .institution {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      font-weight: 500;
+    }
+    .timeline-content .date {
+      color: var(--light-text-color);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .timeline-content ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      color: var(--light-text-color);
+    }
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+      .timeline-item::after { left: 18px; }
+      .timeline-item:nth-child(even) { left: 0; }
+      .timeline-item:nth-child(even)::after { left: 18px; }
+    }
 
-    /* -------------------- LANGUAGES -------------------- */
-    .languages{display:flex;flex-wrap:wrap;gap:1rem;}
-    .language{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:.6rem 1.2rem;border-radius:20px;}
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .list-grid-item {
+      background-color: var(--card-bg-color);
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .list-grid-item:hover {
+      transform: translateY(-8px);
+    }
+    .list-grid-item h3 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .list-grid-item p {
+      color: var(--light-text-color);
+    }
+    .list-grid-item ul {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+      color: var(--light-text-color);
+      margin-top: 1rem;
+    }
+    .project-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
 
-    /* -------------------- FOOTER -------------------- */
-    footer{background:rgba(31,41,55,0.9);padding:2rem;text-align:center;}
-    .footer-socials{margin-bottom:1rem;}
-    .footer-socials a{color:var(--text);font-size:1.5rem;margin:0 .5rem;}
-    .footer-socials a:hover{color:var(--accent);}
+    .footer {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: var(--card-bg-color);
+    }
+    .footer-socials {
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials a {
+      font-size: 1.75rem;
+      color: var(--text-color);
+      margin: 0 0.75rem;
+      transition: color 0.3s ease;
+    }
+    .footer-socials a:hover {
+      color: var(--primary-color);
+    }
+    .footer p {
+      font-size: 0.9rem;
+      color: var(--light-text-color);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+    .chat-toggle:hover {
+      transform: scale(1.1);
+    }
+    .chatbot {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 320px;
+      height: 450px;
+      background: var(--card-bg-color);
+      border-radius: 12px;
+      display: none;
+      flex-direction: column;
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-header .close-btn {
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chat-message {
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 80%;
+      font-size: 0.95rem;
+    }
+    .chat-message.user {
+      background: var(--primary-color);
+      color: white;
+      align-self: flex-end;
+    }
+    .chat-message.bot {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+      align-self: flex-start;
+    }
+    .chat-footer {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    #chat-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--secondary-color);
+      border-radius: 8px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-size: 0.95rem;
+    }
+    #send-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #send-btn:hover {
+      background: var(--link-hover-color);
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="main-header">
+
+  <header class="header">
     <div class="container">
       <div class="logo"><i class="fas fa-microchip"></i> Devansh Pathak</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#summary">About</a></li>
+      <nav class="main-nav">
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#education">Education</a></li>
-          <li><a href="#certifications">Certifications</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Profile -->
-    <section class="profile-section" id="contact">
-      <div class="profile-container">
-        <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Pathak" class="profile-photo">
+  <section class="hero fade-in" id="home">
+    <div class="container hero-content">
+      <div class="profile-img-container">
+        <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Pathak" class="profile-img">
       </div>
       <h1>Devansh Pathak</h1>
-      <div class="title">Embedded Systems & IoT Enthusiast</div>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:er.devanshpathak@gmail.com">er.devanshpathak@gmail.com</a> | 
-         <i class="fas fa-phone"></i> <a href="tel:+919818958116">+91 9818958116</a> | 
-         <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/workwithdevansh">LinkedIn</a></p>
-    </section>
-
-    <!-- Summary -->
-    <section id="summary">
-      <h2><i class="fas fa-user-tie"></i> Professional Summary</h2>
-      <p>
-        Passionate and detail-oriented Embedded Systems and IoT enthusiast with hands-on experience in 
-        <b>ThingWorx, KepServerEX, and Siemens PLC TIA Portal</b> for Industry 4.0 applications. 
-        Skilled in microcontroller programming, industrial data acquisition, and IoT integration. 
-        Currently pursuing a <b>paid internship at IIT Delhi</b>, contributing to industrial automation projects with leading automobile giants. 
-        Proven ability to design and deploy innovative smart manufacturing solutions, quick learner, and committed to continuous improvement in the field of embedded systems and IoT.
+      <h2>Embedded Systems & IoT Engineer</h2>
+      <p class="summary-text">
+        An enthusiastic and results-driven Embedded Systems and IoT professional with hands-on experience in <b>Industry 4.0</b> solutions.
+        Specializing in platforms like <b>ThingWorx, KepServerEX, and Siemens PLC (TIA Portal)</b> for industrial automation and data acquisition.
+        Currently contributing to innovative research projects and providing industrial training at <b>IIT Delhi</b>.
       </p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
-      <div class="skills-container">
-        <div>
-          <h3><i class="fas fa-code"></i> Programming</h3>
-          <ul><li>Embedded C</li><li>Python</li><li>Basic Data Structures</li></ul>
-        </div>
-        <div>
-          <h3><i class="fas fa-microchip"></i> Microcontrollers & Boards</h3>
-          <ul><li>Arduino Uno</li><li>ESP8266 / ESP32</li><li>Raspberry Pi (GPIO, Linux, Python)</li><li>PLC (Siemens TIA Portal)</li></ul>
-        </div>
-        <div>
-          <h3><i class="fas fa-network-wired"></i> Protocols & IoT</h3>
-          <ul><li>I2C, UART, SPI</li><li>MQTT, HTTP</li><li>Wi-Fi & Bluetooth (ESP32)</li><li>OPC-UA Integration</li></ul>
-        </div>
-        <div>
-          <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-          <ul><li>ThingWorx</li><li>KepServerEX</li><li>Linux IoT Systems</li><li>OpenCV</li></ul>
+      <div class="social-links">
+        <a href="mailto:er.devanshpathak@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+919818958116"><i class="fas fa-phone"></i></a>
+        <a href="https://linkedin.com/in/workwithdevansh" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+  
+  <main>
+    <section id="skills" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="card">
+            <h3><i class="fas fa-code"></i> Programming</h3>
+            <ul class="skill-list">
+              <li>Embedded C</li>
+              <li>Python</li>
+              <li>Basic Data Structures</li>
+              <li>PLC Ladder Logic</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><i class="fas fa-microchip"></i> Microcontrollers & PLCs</h3>
+            <ul class="skill-list">
+              <li>Arduino Uno</li>
+              <li>ESP8266 / ESP32</li>
+              <li>Raspberry Pi</li>
+              <li>Siemens PLC (TIA Portal)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><i class="fas fa-network-wired"></i> Protocols & IoT</h3>
+            <ul class="skill-list">
+              <li>I2C, UART, SPI</li>
+              <li>MQTT, HTTP</li>
+              <li>Wi-Fi & Bluetooth</li>
+              <li>OPC-UA Integration</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+            <ul class="skill-list">
+              <li>ThingWorx</li>
+              <li>KepServerEX</li>
+              <li>Linux IoT Systems</li>
+              <li>OpenCV</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience">
-      <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-      <div class="experience">
-        <div class="job-title">Technical Intern (Paid Internship)</div>
-        <div class="company">IIT Delhi – Foundation for Smart Manufacturing</div>
-        <div class="date">June 2025 – Present</div>
-        <ul>
-          <li>Working on Industry 4.0 projects using <b>ThingWorx, KepServerEX, and Siemens PLC (TIA Portal)</b>.</li>
-          <li>Conducted <b>industrial training sessions for major automobile giants</b> on IoT and smart manufacturing integration.</li>
-          <li>Developed <b>OPC-UA based real-time machine monitoring system</b> integrated with ThingWorx dashboards.</li>
-        </ul>
+    <section id="experience" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content card">
+              <h3>Industrial IoT & Automation Engineer</h3>
+              <div class="company">IIT Delhi – Foundation for Smart Manufacturing</div>
+              <div class="date">July 2025 – Present</div>
+              <ul>
+                <li>Led Industrial IoT projects utilizing ThingWorx, KepServerEX, and Siemens PLCs for smart manufacturing.</li>
+                <li>Conducted industrial training sessions on Industry 4.0 for major automobile companies.</li>
+                <li>Designed and deployed an OPC-UA–enabled real-time machine monitoring system with ThingWorx dashboards.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content card">
+              <h3>Technical Intern</h3>
+              <div class="company">IIT Delhi – Foundation for Smart Manufacturing</div>
+              <div class="date">June 2025 – July 2025</div>
+              <ul>
+                <li>Contributed to Industry 4.0 projects using ThingWorx, KepServerEX, and Siemens PLC.</li>
+                <li>Assisted in conducting training sessions for industry professionals.</li>
+                <li>Developed an OPC-UA based machine monitoring system.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content card">
+              <h3>Trainee Intern</h3>
+              <div class="company">JKSD Infotech Pvt. Ltd, Noida</div>
+              <div class="date">May 2024 – July 2024</div>
+              <ul>
+                <li>Completed comprehensive training in Embedded Systems and IoT.</li>
+                <li>Gained practical experience in microcontroller programming and sensor integration.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="experience">
-        <div class="job-title">Trainee Intern</div>
-        <div class="company">JKSD Infotech Pvt. Ltd, Noida</div>
-        <div class="date">May 2024 – July 2024</div>
-        <ul>
-          <li>Completed training in Embedded Systems and IoT, focusing on microcontroller programming and sensor integration.</li>
-          <li>Developed practical projects for real-time data acquisition and hardware-software interfacing.</li>
-        </ul>
+    </section>
+
+    <section id="projects" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-project-diagram"></i> Key Projects</h2>
+        <div class="list-grid">
+          <div class="list-grid-item card project-card">
+            <h4>Smart Home Automation</h4>
+            <p>A smart home system using an ESP32 and Blynk for remote control of appliances via Wi-Fi.</p>
+          </div>
+          <div class="list-grid-item card project-card">
+            <h4>IoT Weather Station</h4>
+            <p>An IoT-enabled weather station with an ESP32 and a DHT11 sensor, logging real-time data to Firebase cloud.</p>
+          </div>
+          <div class="list-grid-item card project-card">
+            <h4>Raspberry Pi Surveillance System</h4>
+            <p>A motion-detection surveillance system using a Raspberry Pi and OpenCV, with email alerts for detected activity.</p>
+          </div>
+          <div class="list-grid-item card project-card">
+            <h4>Voice Controlled Appliances</h4>
+            <p>An automation project using an ESP32, Google Assistant, and IFTTT to control devices with voice commands.</p>
+          </div>
+          <div class="list-grid-item card project-card">
+            <h4>Smart Notice Board</h4>
+            <p>A Raspberry Pi-based notice board using an LCD for LAN-based announcements and messaging.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2><i class="fas fa-project-diagram"></i> Projects</h2>
-      <ul>
-        <li><b>Smart Home Automation</b> – ESP32 + Blynk + Wi-Fi for remote appliance control.</li>
-        <li><b>IoT Weather Station</b> – ESP32 + DHT11 + Firebase cloud logging.</li>
-        <li><b>Raspberry Pi Surveillance</b> – Motion detection with OpenCV + email alerts.</li>
-        <li><b>Voice Controlled Appliances</b> – ESP32 + Google Assistant + IFTTT.</li>
-        <li><b>Smart Notice Board</b> – Raspberry Pi + LCD for LAN-based announcements.</li>
-        <li>And several Arduino-based projects (Radar, Fire Alarm, Sound LED, Traffic System, etc.)</li>
-      </ul>
+    <section id="achievements" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+        <div class="list-grid">
+          <div class="list-grid-item card">
+            <h3>Key Achievements</h3>
+            <ul>
+              <li><b>AIR 27</b> – National Entrepreneurship Challenge, IIT Bombay (2023)</li>
+              <li><b>3rd Position</b> – The Shark Pitch’23, ABES Engineering College (2023)</li>
+              <li>Participant – VLSI Workshop, NIT Delhi (2024)</li>
+            </ul>
+          </div>
+          <div class="list-grid-item card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Summer Industrial Training in IoT and Embedded Systems – JKSD Infotech (2024)</li>
+              <li>Mastering Data Structures & Algorithms using C/C++ – Udemy</li>
+              <li>Workshops on Networking Fundamentals & Robotics (ROS)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
-
-    <!-- Achievements -->
-    <section id="achievements">
-      <h2><i class="fas fa-trophy"></i> Achievements</h2>
-      <ul>
-        <li><b>AIR 27</b> – National Entrepreneurship Challenge, IIT Bombay (2023)</li>
-        <li><b>3rd Position</b> – The Shark Pitch’23, ABES Engineering College (2023)</li>
-        <li>Workshops: VLSI (NIT Delhi), Networking (ABES + PyNet Labs), Robotics & ROS (ABES Engineering College)</li>
-      </ul>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-      <ul>
-        <li><b>B.Tech in Electrical & Computer Engineering</b> – ABES Engineering College, Ghaziabad (AKTU Lucknow), 2026</li>
-        <li><b>Senior Secondary (CBSE)</b> – K.L. International School, Meerut, 2022</li>
-      </ul>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications">
-      <h2><i class="fas fa-certificate"></i> Certifications</h2>
-      <ul>
-        <li>Summer Industrial Training in IoT and Embedded Systems – JKSD Infotech Pvt. Ltd, Noida (2024)</li>
-        <li>AIR 27 – National Entrepreneurship Challenge, IIT Bombay (2023)</li>
-        <li>Mastering Data Structures & Algorithms using C and C++ – Udemy</li>
-        <li>Workshops: Analog ICs & Semiconductor Advancements in VLSI (NIT Delhi), Networking Fundamentals, Robotics (ROS)</li>
-      </ul>
+    
+    <section id="education" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content card">
+              <h3>B.Tech in Electrical & Computer Engineering</h3>
+              <div class="institution">ABES Engineering College, Ghaziabad</div>
+              <div class="date">2026</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content card">
+              <h3>Senior Secondary (CBSE)</h3>
+              <div class="institution">K.L. International School, Meerut</div>
+              <div class="date">2022</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-socials">
-      <a href="https://linkedin.com/in/workwithdevansh"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/yourgithub"><i class="fab fa-github"></i></a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/workwithdevansh" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <p>&copy; 2025 Devansh Pathak. All rights reserved.</p>
     </div>
-    <p>© 2025 Devansh Pathak. All rights reserved.</p>
   </footer>
+
+  <div id="chatbot" class="chatbot">
+    <div class="chat-header">
+      Chat with Devansh's Assistant
+      <span class="close-btn" id="close-chat">&times;</span>
+    </div>
+    <div class="chat-body">
+      <div class="chat-message bot">Hello! How can I help you today? Ask about skills, projects, experience, or anything else.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button id="chat-toggle" class="chat-toggle"><i class="fas fa-comment-dots"></i></button>
+
+  <script>
+    const sections = document.querySelectorAll('.fade-in');
+    const options = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    sections.forEach(section => observer.observe(section));
+
+    const toggleBtn = document.getElementById('chat-toggle');
+    const chatbot = document.getElementById('chatbot');
+    const closeBtn = document.getElementById('close-chat');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const chatBody = document.querySelector('.chat-body');
+
+    toggleBtn.addEventListener('click', () => {
+      chatbot.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatbot.style.display = 'none';
+    });
+
+    function addMessage(text, sender) {
+      const message = document.createElement('div');
+      message.classList.add('chat-message', sender);
+      message.textContent = text;
+      chatBody.appendChild(message);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      input.value = '';
+
+      setTimeout(() => {
+        let response = "I'm a simple assistant. Ask about Devansh's portfolio!";
+        const lowerText = text.toLowerCase();
+
+        if (lowerText.includes('skills')) {
+          response = 'Devansh specializes in Embedded C, Python, PLC Ladder Logic, microcontrollers like Arduino and ESP32, IoT protocols (MQTT, HTTP), and tools like ThingWorx and KepServerEX.';
+        } else if (lowerText.includes('projects')) {
+          response = 'Key projects include Smart Home Automation, IoT Weather Station, Raspberry Pi Surveillance System, Voice Controlled Appliances, and Smart Notice Board.';
+        } else if (lowerText.includes('experience')) {
+          response = 'Devansh is currently an Industrial IoT & Automation Engineer at IIT Delhi. He has internships at IIT Delhi and JKSD Infotech.';
+        } else if (lowerText.includes('achievements')) {
+          response = 'Achievements: AIR 27 in National Entrepreneurship Challenge (IIT Bombay, 2023), 3rd in The Shark Pitch’23, and various certifications in IoT and data structures.';
+        } else if (lowerText.includes('education')) {
+          response = 'B.Tech in Electrical & Computer Engineering from ABES Engineering College (2026), Senior Secondary from K.L. International School (2022).';
+        } else if (lowerText.includes('contact')) {
+          response = 'You can reach Devansh at er.devanshpathak@gmail.com or +91 9818958116.';
+        } else if (lowerText.includes('hello') || lowerText.includes('hi')) {
+          response = 'Hi there! What would you like to know about Devansh?';
+        }
+
+        addMessage(response, 'bot');
+      }, 1000);
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+
 </body>
 </html>
