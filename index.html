@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Devansh Pathak, an Embedded Systems & IoT Engineer specializing in Industry 4.0 solutions.">
-  <title>Devansh Pathak | Embedded Systems & IoT</title>
+  <meta name="description" content="Portfolio of Devansh Pathak, an Embedded Systems & Industrial IoT Engineer specializing in Industry 4.0 solutions.">
+  <title>Devansh Pathak | Embedded Systems & Industrial IoT</title>
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/726/726056.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
     }
     a { text-decoration: none; color: var(--primary-color); }
     a:hover { color: var(--link-hover-color); transition: color 0.3s ease; }
-    
+   
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -57,7 +57,6 @@
       margin: 1rem auto 0;
       border-radius: 2px;
     }
-
     .header {
       position: fixed;
       top: 0;
@@ -115,7 +114,6 @@
       .nav-menu { display: none; }
       .nav-toggle { display: block; }
     }
-
     .hero {
       text-align: center;
       padding-top: 8rem;
@@ -171,7 +169,6 @@
       color: var(--primary-color);
       transform: translateY(-5px);
     }
-
     .card {
       background-color: var(--card-bg-color);
       border-radius: 12px;
@@ -184,7 +181,6 @@
       transform: translateY(-8px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
-
     .summary-text {
       font-size: 1.1rem;
       line-height: 1.8;
@@ -195,35 +191,30 @@
     .summary-text b {
       color: var(--accent-color);
     }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
     .skills-grid .card {
-      text-align: center;
+      text-align: left;
     }
     .skills-grid h3 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-    .skills-grid h3 i {
       color: var(--primary-color);
     }
     .skill-list {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
+      flex-direction: column;
+      gap: 0.5rem;
     }
     .skill-list li {
       background-color: rgba(255, 255, 255, 0.05);
       padding: 0.5rem 1rem;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--light-text-color);
       transition: background 0.3s ease;
@@ -231,7 +222,7 @@
     .skill-list li:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
-    
+   
     .timeline {
       position: relative;
       max-width: 900px;
@@ -309,7 +300,6 @@
       .timeline-item:nth-child(even) { left: 0; }
       .timeline-item:nth-child(even)::after { left: 18px; }
     }
-
     .list-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -327,10 +317,10 @@
     .list-grid-item:hover {
       transform: translateY(-8px);
     }
-    .list-grid-item h3 {
-      font-size: 1.2rem;
-      color: var(--primary-color);
+    .list-grid-item h4 {
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
+      color: var(--primary-color);
     }
     .list-grid-item p {
       color: var(--light-text-color);
@@ -346,7 +336,6 @@
       margin-bottom: 0.5rem;
       color: var(--primary-color);
     }
-
     .footer {
       text-align: center;
       padding: 3rem 0;
@@ -368,12 +357,10 @@
       font-size: 0.9rem;
       color: var(--light-text-color);
     }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.03); }
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -383,7 +370,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
     .chat-toggle {
       position: fixed;
       bottom: 20px;
@@ -486,7 +472,6 @@
   </style>
 </head>
 <body>
-
   <header class="header">
     <div class="container">
       <div class="logo"><i class="fas fa-microchip"></i> Devansh Pathak</div>
@@ -496,174 +481,190 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <section class="hero fade-in" id="home">
     <div class="container hero-content">
       <div class="profile-img-container">
         <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Pathak" class="profile-img">
       </div>
       <h1>Devansh Pathak</h1>
-      <h2>Embedded Systems & IoT Engineer</h2>
+      <h2>Embedded Systems & Industrial IoT Engineer</h2>
       <p class="summary-text">
-        An enthusiastic and results-driven Embedded Systems and IoT professional with hands-on experience in <b>Industry 4.0</b> solutions.
-        Specializing in platforms like <b>ThingWorx, KepServerEX, and Siemens PLC (TIA Portal)</b> for industrial automation and data acquisition.
-        Currently contributing to innovative research projects and providing industrial training at <b>IIT Delhi</b>.
+        Industry-experienced Embedded Systems & Industrial IoT Engineer with strong hands-on expertise in <b>ESP32, Raspberry Pi, PLC–IoT integration</b>, and <b>cloud-connected automation systems</b>. Skilled in designing end-to-end IoT architectures, real-time data acquisition pipelines, and industrial dashboards. Experienced in <b>PCB design</b>, protocol debugging, and hardware–software interfacing for manufacturing environments. Delivered technical trainings to automobile industry teams on <b>ThingWorx and Python</b>. Passionate about building reliable, scalable, and production-ready IoT and automation solutions.
       </p>
       <div class="social-links">
         <a href="mailto:er.devanshpathak@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="tel:+919818958116"><i class="fas fa-phone"></i></a>
-        <a href="https://linkedin.com/in/workwithdevansh" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/workwithdevansh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://devanshpathak.netlify.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i></a>
       </div>
     </div>
   </section>
-  
+ 
   <main>
     <section id="skills" class="fade-in">
       <div class="container">
         <h2 class="section-heading"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
         <div class="skills-grid">
           <div class="card">
-            <h3><i class="fas fa-code"></i> Programming</h3>
+            <h3>Embedded Systems</h3>
             <ul class="skill-list">
+              <li>ESP32, Arduino, Raspberry Pi</li>
               <li>Embedded C</li>
-              <li>Python</li>
-              <li>Basic Data Structures</li>
-              <li>PLC Ladder Logic</li>
+              <li>Sensor Interfacing, Actuator Control</li>
+              <li>Real-Time Data Acquisition, Edge Processing</li>
             </ul>
           </div>
           <div class="card">
-            <h3><i class="fas fa-microchip"></i> Microcontrollers & PLCs</h3>
+            <h3>Internet of Things (IoT)</h3>
             <ul class="skill-list">
-              <li>Arduino Uno</li>
-              <li>ESP8266 / ESP32</li>
-              <li>Raspberry Pi</li>
-              <li>Siemens PLC (TIA Portal)</li>
+              <li>MQTT, HTTP, Webhooks, REST APIs</li>
+              <li>Blynk, Firebase, ThingWorx</li>
+              <li>IoT Architecture Design & Device Provisioning</li>
+              <li>Cloud Connectivity, Data Logging, Dashboards</li>
+              <li>PLC–IoT Integration (Rockwell, Siemens)</li>
+              <li>SCADA Communication, Modbus RTU/TCP</li>
             </ul>
           </div>
           <div class="card">
-            <h3><i class="fas fa-network-wired"></i> Protocols & IoT</h3>
+            <h3>Electronics & Hardware</h3>
             <ul class="skill-list">
-              <li>I2C, UART, SPI</li>
-              <li>MQTT, HTTP</li>
-              <li>Wi-Fi & Bluetooth</li>
-              <li>OPC-UA Integration</li>
+              <li>PCB Design (EasyEDA): Schematics, Layout, Routing</li>
+              <li>PCB Assembly, Soldering, Board-Level Rework</li>
+              <li>Circuit Debugging (Firmware, Protocol, Signal Issues)</li>
             </ul>
           </div>
           <div class="card">
-            <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+            <h3>Networking & Protocols</h3>
             <ul class="skill-list">
-              <li>ThingWorx</li>
-              <li>KepServerEX</li>
-              <li>Linux IoT Systems</li>
-              <li>OpenCV</li>
+              <li>Wi-Fi Configuration for IoT</li>
+              <li>UART, I2C, SPI Communication</li>
+              <li>Industrial Protocols: Modbus RTU/TCP</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Industrial Automation</h3>
+            <ul class="skill-list">
+              <li>Rockwell & Siemens PLC Basics</li>
+              <li>Sensor-to-Cloud Communication Pipelines</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Additional Technical Skills</h3>
+            <ul class="skill-list">
+              <li>Motion Detection using OpenCV</li>
+              <li>Email Automation (Raspberry Pi)</li>
+              <li>Energy Monitoring (PZEM-004T)</li>
+              <li>Smart Home & Automation Systems</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Soft Skills</h3>
+            <ul class="skill-list">
+              <li>Technical Training Delivery (ThingWorx, Python)</li>
+              <li>Problem Solving & Debugging</li>
+              <li>Documentation & Reporting</li>
+              <li>Hardware–Software Co-Development</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-
     <section id="experience" class="fade-in">
       <div class="container">
         <h2 class="section-heading"><i class="fas fa-briefcase"></i> Professional Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content card">
-              <h3>Industrial IoT & Automation Engineer</h3>
-              <div class="company">IIT Delhi – Foundation for Smart Manufacturing</div>
-              <div class="date">July 2025 – Present</div>
+              <h3>Industrial IoT & Automation Intern (PAID)</h3>
+              <div class="company">IIT Delhi – AIA Foundation for Smart Manufacturing, Hauz Khas, New Delhi</div>
+              <div class="date">June 2025 – Present</div>
               <ul>
-                <li>Led Industrial IoT projects utilizing ThingWorx, KepServerEX, and Siemens PLCs for smart manufacturing.</li>
-                <li>Conducted industrial training sessions on Industry 4.0 for major automobile companies.</li>
-                <li>Designed and deployed an OPC-UA–enabled real-time machine monitoring system with ThingWorx dashboards.</li>
+                <li>Worked on Embedded Systems and Industrial IoT solutions during a paid internship under the mentorship of Prof. Dr. Sunil Jha.</li>
+                <li>Contributed to Industry 4.0 initiatives involving smart manufacturing, automation, and industrial digitalization.</li>
+                <li>Designed and implemented end-to-end IoT architectures, developed embedded firmware, and integrated multiple hardware–software components.</li>
+                <li>Built real-time data acquisition systems, performed edge analytics, and established sensor-to-cloud communication pipelines.</li>
+                <li>Integrated PLCs and SCADA with IoT platforms; established reliable communication between Rockwell/Siemens PLCs and ESP32/Arduino using Modbus, MQTT, and serial protocols.</li>
+                <li>Developed industrial dashboards, configured cloud connectivity, and conducted system-level testing for deployment in manufacturing environments.</li>
+                <li>Worked extensively on IoT prototyping, debugging, PCB-level corrections, and optimizing communication workflows for improved performance.</li>
+                <li>Delivered technical training sessions on ThingWorx and Python to teams from leading automobile industries.</li>
+                <li>Collaborated with cross-functional industrial teams to deploy IoT-enabled solutions on shop-floor environments, ensuring seamless integration with existing automation systems.</li>
+                <li>Documented system architectures, created SOPs, and prepared deployment-ready technical reports for large-scale implementation and troubleshooting.</li>
               </ul>
+.org>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content card">
-              <h3>Technical Intern</h3>
-              <div class="company">IIT Delhi – Foundation for Smart Manufacturing</div>
-              <div class="date">June 2025 – July 2025</div>
+              <h3>Embedded Systems Trainee Intern</h3>
+              <div class="company">JKSD Infotech Pvt. Ltd., Sector-63, Noida</div>
+              <div class="date">May 2024 – August 2024</div>
               <ul>
-                <li>Contributed to Industry 4.0 projects using ThingWorx, KepServerEX, and Siemens PLC.</li>
-                <li>Assisted in conducting training sessions for industry professionals.</li>
-                <li>Developed an OPC-UA based machine monitoring system.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content card">
-              <h3>Trainee Intern</h3>
-              <div class="company">JKSD Infotech Pvt. Ltd, Noida</div>
-              <div class="date">May 2024 – July 2024</div>
-              <ul>
-                <li>Completed comprehensive training in Embedded Systems and IoT.</li>
-                <li>Gained practical experience in microcontroller programming and sensor integration.</li>
+                <li>Completed hands-on training in Embedded Systems and IoT, gaining strong skills in microcontroller programming, Embedded C, sensor interfacing, and IoT communication protocols such as MQTT.</li>
+                <li>Worked on ESP32, Arduino, and Raspberry Pi to design and develop complete end-to-end IoT systems, from hardware setup to cloud integration.</li>
+                <li>Gained experience in hardware–software interfacing, real-time data acquisition, actuator control, and reliable two-way device-to-cloud communication.</li>
+                <li>Developed multiple IoT projects including environmental monitoring units, automation modules, wireless control systems, data logging systems, and real-time dashboards.</li>
+                <li>Integrated IoT devices with cloud platforms such as Firebase, Blynk, and custom REST APIs for remote monitoring and control.</li>
+                <li>Strengthened debugging skills by resolving circuit issues, firmware bugs, signal problems, and communication protocol mismatches.</li>
+                <li>Achieved hands-on expertise in PCB soldering, component assembly, board-level circuit corrections, and testing.</li>
+                <li>Designed custom PCBs in EasyEDA, including schematic creation, layout design, routing, component placement, and Gerber file generation.</li>
+                <li>Developed the ability to convert circuit concepts into manufacturable PCBs and build complete working hardware prototypes.</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <section id="projects" class="fade-in">
       <div class="container">
         <h2 class="section-heading"><i class="fas fa-project-diagram"></i> Key Projects</h2>
         <div class="list-grid">
           <div class="list-grid-item card project-card">
-            <h4>Smart Home Automation</h4>
-            <p>A smart home system using an ESP32 and Blynk for remote control of appliances via Wi-Fi.</p>
+            <h4>Smart Home Automation using ESP32 and Blynk</h4>
+            <p>Designed and implemented a Wi-Fi based home automation system using ESP32, Blynk app, and relay modules to remotely control home appliances through a smartphone.</p>
           </div>
           <div class="list-grid-item card project-card">
-            <h4>IoT Weather Station</h4>
-            <p>An IoT-enabled weather station with an ESP32 and a DHT11 sensor, logging real-time data to Firebase cloud.</p>
+            <h4>IoT Weather Station using ESP32 and DHT11</h4>
+            <p>Developed a real-time temperature and humidity monitoring setup using ESP32 and DHT11, with data logged and visualized on Firebase cloud.</p>
           </div>
           <div class="list-grid-item card project-card">
-            <h4>Raspberry Pi Surveillance System</h4>
-            <p>A motion-detection surveillance system using a Raspberry Pi and OpenCV, with email alerts for detected activity.</p>
+            <h4>Raspberry Pi Surveillance Camera System</h4>
+            <p>Built a motion-detection surveillance solution using Raspberry Pi, Pi Camera, and OpenCV, featuring real-time email alerts and local video recording.</p>
           </div>
           <div class="list-grid-item card project-card">
-            <h4>Voice Controlled Appliances</h4>
-            <p>An automation project using an ESP32, Google Assistant, and IFTTT to control devices with voice commands.</p>
+            <h4>Voice-Controlled Home Appliances (ESP32 + Google Assistant)</h4>
+            <p>Integrated ESP32 with Google Assistant using IFTTT and webhooks to operate appliances like fans and lights through voice commands over Wi-Fi.</p>
           </div>
           <div class="list-grid-item card project-card">
-            <h4>Smart Notice Board</h4>
-            <p>A Raspberry Pi-based notice board using an LCD for LAN-based announcements and messaging.</p>
+            <h4>Smart Notice Board using Raspberry Pi and LCD</h4>
+            <p>Created a centrally controlled digital notice board using Raspberry Pi and a 16x2 LCD display, enabling remote announcements over a LAN network.</p>
+          </div>
+          <div class="list-grid-item card project-card">
+            <h4>Energy Meter Module using PZEM-004T V3.0 with Firebeetle ESP32</h4>
+            <p>Developed an energy monitoring module that measures voltage, current, power, and energy consumption, displaying real-time data via ESP32.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="achievements" class="fade-in">
-      <div class="container">
-        <h2 class="section-heading"><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+        <h2 class="section-heading" style="margin-top: 3rem;"><i class="fas fa-microchip"></i> Mini / Sensor-Based Projects</h2>
         <div class="list-grid">
           <div class="list-grid-item card">
-            <h3>Key Achievements</h3>
             <ul>
-              <li><b>AIR 27</b> – National Entrepreneurship Challenge, IIT Bombay (2023)</li>
-              <li><b>3rd Position</b> – The Shark Pitch’23, ABES Engineering College (2023)</li>
-              <li>Participant – VLSI Workshop, NIT Delhi (2024)</li>
-            </ul>
-          </div>
-          <div class="list-grid-item card">
-            <h3>Certifications</h3>
-            <ul>
-              <li>Summer Industrial Training in IoT and Embedded Systems – JKSD Infotech (2024)</li>
-              <li>Mastering Data Structures & Algorithms using C/C++ – Udemy</li>
-              <li>Workshops on Networking Fundamentals & Robotics (ROS)</li>
+              <li>Ultrasonic Radar using HC-SR04 and Micro Servo SG90</li>
+              <li>Fire Detection Alarm using Flame Sensor and Piezo Buzzer</li>
+              <li>Sound-Controlled LED using KY-037 Sound Sensor</li>
+              <li>IR Remote-Controlled LED using IR Receiver Module</li>
+              <li>Touch-Based LED Control using TTP223 Capacitive Touch Sensor</li>
+              <li>Obstacle Avoidance using KY-033 Line Tracking Sensor</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-    
+   
     <section id="education" class="fade-in">
       <div class="container">
         <h2 class="section-heading"><i class="fas fa-graduation-cap"></i> Education</h2>
@@ -671,36 +672,53 @@
           <div class="timeline-item">
             <div class="timeline-content card">
               <h3>B.Tech in Electrical & Computer Engineering</h3>
-              <div class="institution">ABES Engineering College, Ghaziabad</div>
+              <div class="institution">ABES Engineering College, Ghaziabad (AKTU Lucknow)</div>
               <div class="date">2026</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content card">
               <h3>Senior Secondary (CBSE)</h3>
-              <div class="institution">K.L. International School, Meerut</div>
+              <div class="institution">K.L. International School, Meerut | Central Board of Secondary Education, New Delhi</div>
               <div class="date">2022</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
+    <section id="certifications" class="fade-in">
+      <div class="container">
+        <h2 class="section-heading"><i class="fas fa-certificate"></i> Certifications & Workshops</h2>
+        <div class="list-grid">
+          <div class="list-grid-item card">
+            <ul>
+              <li><b>Course on Analog ICs and Semiconductor Advancements in VLSI</b><br>Organized by: National Institute of Technology Delhi (NIT Delhi)<br>Duration: Six Days (February 10 to February 15, 2025)</li>
+              <li><b>Workshop on Networking Fundamentals</b><br>Organized by: ABES Engineering College and PyNetLabs<br>Date: One Day Workshop (February 18, 2025)</li>
+              <li><b>Workshop on Robotics Product: ROS & Start-up Funding</b><br>Organized by: iNurture Incubation Foundation, ABES Engineering College<br>Duration: February 27 to March 6, 2025</li>
+              <li><b>Value Added Course in Competitive Coding using C/CPP - Intermediate Level</b><br>Organized by: ABES Engineering College<br>Duration: September 22, 2023, to January 10, 2024</li>
+              <li><b>Value Added Course in Competitive Coding using Python - Level I</b><br>Organized by: ABES Engineering College<br>Duration: September 12, 2023, to January 12, 2024</li>
+              <li><b>Internship Course in Web Development - II</b><br>Organized by: ABES Engineering College<br>Duration: April 3, 2024, to June 27, 2024</li>
+              <li><b>Internship Course in Web Development - I</b><br>Organized by: ABES Engineering College<br>Duration: September 12, 2023, to January 12, 2024</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="container">
       <div class="footer-socials">
-        <a href="https://linkedin.com/in/workwithdevansh" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/workwithdevansh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://devanshpathak.netlify.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i></a>
       </div>
       <p>&copy; 2025 Devansh Pathak. All rights reserved.</p>
     </div>
   </footer>
-
   <div id="chatbot" class="chatbot">
     <div class="chat-header">
       Chat with Devansh's Assistant
-      <span class="close-btn" id="close-chat">&times;</span>
+      <span class="close-btn" id="close-chat">×</span>
     </div>
     <div class="chat-body">
       <div class="chat-message bot">Hello! How can I help you today? Ask about skills, projects, experience, or anything else.</div>
@@ -711,7 +729,6 @@
     </div>
   </div>
   <button id="chat-toggle" class="chat-toggle"><i class="fas fa-comment-dots"></i></button>
-
   <script>
     const sections = document.querySelectorAll('.fade-in');
     const options = {
@@ -726,22 +743,18 @@
       });
     }, options);
     sections.forEach(section => observer.observe(section));
-
     const toggleBtn = document.getElementById('chat-toggle');
     const chatbot = document.getElementById('chatbot');
     const closeBtn = document.getElementById('close-chat');
     const input = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
     const chatBody = document.querySelector('.chat-body');
-
     toggleBtn.addEventListener('click', () => {
       chatbot.style.display = 'flex';
     });
-
     closeBtn.addEventListener('click', () => {
       chatbot.style.display = 'none';
     });
-
     function addMessage(text, sender) {
       const message = document.createElement('div');
       message.classList.add('chat-message', sender);
@@ -749,42 +762,36 @@
       chatBody.appendChild(message);
       chatBody.scrollTop = chatBody.scrollHeight;
     }
-
     function sendMessage() {
       const text = input.value.trim();
       if (!text) return;
       addMessage(text, 'user');
       input.value = '';
-
       setTimeout(() => {
         let response = "I'm a simple assistant. Ask about Devansh's portfolio!";
         const lowerText = text.toLowerCase();
-
         if (lowerText.includes('skills')) {
-          response = 'Devansh specializes in Embedded C, Python, PLC Ladder Logic, microcontrollers like Arduino and ESP32, IoT protocols (MQTT, HTTP), and tools like ThingWorx and KepServerEX.';
+          response = 'Devansh has expertise in Embedded Systems (ESP32, Arduino, Raspberry Pi, Embedded C), IoT (MQTT, ThingWorx, PLC integration), PCB Design, Industrial Automation, and more.';
         } else if (lowerText.includes('projects')) {
-          response = 'Key projects include Smart Home Automation, IoT Weather Station, Raspberry Pi Surveillance System, Voice Controlled Appliances, and Smart Notice Board.';
+          response = 'Major projects: Smart Home Automation, IoT Weather Station, Raspberry Pi Surveillance, Voice-Controlled Appliances, Smart Notice Board, Energy Meter. Mini projects include Ultrasonic Radar, Fire Alarm, etc.';
         } else if (lowerText.includes('experience')) {
-          response = 'Devansh is currently an Industrial IoT & Automation Engineer at IIT Delhi. He has internships at IIT Delhi and JKSD Infotech.';
-        } else if (lowerText.includes('achievements')) {
-          response = 'Achievements: AIR 27 in National Entrepreneurship Challenge (IIT Bombay, 2023), 3rd in The Shark Pitch’23, and various certifications in IoT and data structures.';
+          response = 'Currently: Industrial IoT & Automation Intern (PAID) at IIT Delhi (June 2025 – Present). Previously: Embedded Systems Trainee Intern at JKSD Infotech (May–Aug 2024).';
         } else if (lowerText.includes('education')) {
-          response = 'B.Tech in Electrical & Computer Engineering from ABES Engineering College (2026), Senior Secondary from K.L. International School (2022).';
+          response = 'B.Tech in Electrical & Computer Engineering from ABES Engineering College (2026). Senior Secondary from K.L. International School (2022).';
+        } else if (lowerText.includes('certification')) {
+          response = 'Certifications include Analog ICs in VLSI (NIT Delhi), Robotics ROS Workshop, Competitive Coding (C/C++, Python), Web Development Internships, and more.';
         } else if (lowerText.includes('contact')) {
-          response = 'You can reach Devansh at er.devanshpathak@gmail.com or +91 9818958116.';
+          response = 'Email: er.devanshpathak@gmail.com | Phone: +91 9818958116 | Portfolio: devanshpathak.netlify.app';
         } else if (lowerText.includes('hello') || lowerText.includes('hi')) {
           response = 'Hi there! What would you like to know about Devansh?';
         }
-
         addMessage(response, 'bot');
       }, 1000);
     }
-
     sendBtn.addEventListener('click', sendMessage);
     input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
   </script>
-
 </body>
 </html>
