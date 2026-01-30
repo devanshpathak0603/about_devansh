@@ -3,244 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devansh Dutt Pathak | Embedded Systems & IIoT Engineer</title>
+    <title>Devansh Dutt Pathak | Embedded & IIoT Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #007aff;
-            --bg-dark: #0a0c10;
-            --card-dark: #12151c;
-            --text-main: #f0f6fc;
-            --text-dim: #8b949e;
-            --border: #30363d;
-            --accent-glow: rgba(0, 122, 255, 0.15);
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --bg: #05070a;
+            --glass: rgba(17, 25, 40, 0.75);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --dim: #a0a0a0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
+            font-family: 'Space Grotesk', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
             line-height: 1.6;
-            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #101520 0%, #05070a 100%);
         }
 
-        /* Responsive Navigation */
+        /* Glass Navbar */
         nav {
             position: fixed; width: 100%; top: 0; z-index: 1000;
-            background: rgba(10, 12, 16, 0.8);
-            backdrop-filter: blur(12px);
+            background: var(--glass); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
         }
-        .nav-content {
-            max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-weight: 700; letter-spacing: 2px; color: var(--primary); }
 
-        /* Hero Section - Calibrated for All Screens */
+        /* Animated Hero Header */
         .hero {
-            padding: 10rem 1.5rem 6rem;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%);
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 1rem; position: relative;
         }
-        .profile-frame {
-            width: 180px; height: 180px; border-radius: 50%;
-            border: 4px solid var(--primary); padding: 5px;
-            margin-bottom: 2rem; transition: 0.5s;
+        .profile-hex {
+            width: 200px; height: 200px; margin-bottom: 2rem;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background: var(--primary); padding: 5px;
         }
-        .profile-frame:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-glow); }
-        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-        
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px; }
-        .hero .subtitle { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-size: 1.1rem; margin-bottom: 2rem; }
+        .profile-hex img {
+            width: 100%; height: 100%; object-fit: cover;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); line-height: 1; margin-bottom: 1rem; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-family: 'Fira Code', monospace; color: var(--primary); font-size: 1.2rem; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-        
-        /* Grid Layouts */
-        .section-header { margin: 4rem 0 2rem; }
-        .section-header h2 { font-size: 2rem; font-weight: 800; }
-        .section-header .line { width: 50px; height: 4px; background: var(--primary); margin-top: 10px; border-radius: 2px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
 
-        .experience-card {
-            background: var(--card-dark); border: 1px solid var(--border);
-            padding: 2rem; border-radius: 16px; margin-bottom: 1.5rem;
-            transition: 0.3s;
-        }
-        .experience-card:hover { border-color: var(--primary); background: #161b22; }
+        /* Bento-Style Grid for Skills/Experience */
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .bento-item { background: var(--glass); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; backdrop-filter: blur(5px); transition: 0.4s; }
+        .bento-item:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
+        .large { grid-column: span 2; }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+        /* Project Cards with Visual Depth */
+        .project-card { 
+            background: linear-gradient(145deg, #111928, #05070a); 
+            border-radius: 24px; border: 1px solid var(--border); overflow: hidden; position: relative;
         }
-        .project-card {
-            background: var(--card-dark); border-radius: 16px; overflow: hidden;
-            border: 1px solid var(--border); transition: 0.4s;
-        }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .project-info { padding: 1.5rem; }
-        .project-tag { 
-            font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; 
-            color: var(--primary); background: rgba(0, 122, 255, 0.1); 
-            padding: 4px 10px; border-radius: 20px; margin-right: 5px;
-        }
-
-        /* Skill Pills */
-        .skill-group { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-pill { 
-            background: var(--card-dark); border: 1px solid var(--border); 
-            padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; color: var(--text-dim);
-        }
+        .project-header { height: 10px; background: linear-gradient(to right, var(--primary), var(--secondary)); }
+        .project-content { padding: 2rem; }
+        .tech-pill { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--primary); border: 1px solid var(--primary); padding: 4px 10px; border-radius: 50px; margin-right: 5px; margin-bottom: 8px; display: inline-block; }
 
         /* Mobile Calibration */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplified mobile header */
-            .hero { padding-top: 8rem; }
-            .project-grid { grid-template-columns: 1fr; }
-            .experience-card { padding: 1.5rem; }
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .large { grid-column: span 1; }
+            .hero h1 { font-size: 3rem; }
         }
 
-        footer { text-align: center; padding: 4rem 1.5rem; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 5rem; }
+        .contact-bar { margin-top: 2rem; display: flex; gap: 1.5rem; font-size: 1.5rem; }
+        .contact-bar a { color: var(--text); transition: 0.3s; }
+        .contact-bar a:hover { color: var(--primary); transform: scale(1.2); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-content">
-            <div class="logo">DDP.ENGINEER</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-            </ul>
+        <div class="nav-container">
+            <div class="logo">DDP.IO</div>
+            <div style="font-family: 'Fira Code'; font-size: 0.8rem; color: var(--dim);">[embedded_dev_mode]</div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="profile-frame">
-            <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Dutt Pathak" class="profile-img">
+    <section class="hero">
+        <div class="profile-hex">
+            <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Dutt Pathak">
         </div>
-        <h1>Devansh Dutt Pathak</h1>
-        <p class="subtitle">Embedded Systems Developer & Industrial IoT Specialist</p>
-        <div style="display: flex; gap: 20px; font-size: 1.2rem;">
-            <a href="mailto:er.devanshpathak@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/workwithdevansh" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://devanshpathak.netlify.app" target="_blank" title="Live Portfolio"><i class="fas fa-external-link-alt"></i></a>
+        <h1>DEVANSH DUTT PATHAK</h1>
+        <p>>_ Embedded & IIoT Systems Developer</p>
+        <div class="contact-bar">
+            <a href="mailto:er.devanshpathak@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/workwithdevansh" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://devanshpathak.netlify.app" target="_blank"><i class="fas fa-terminal"></i></a>
         </div>
-    </header>
+    </section>
 
-    <main class="container">
-        <section id="about" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-            <p style="color: var(--text-dim); font-size: 1.1rem;">
-                Embedded developer specializing in **ESP32 (ESP-IDF)**, **STM32**, and **Raspberry Pi**. 
-                Expertise in real-time data acquisition, monitoring systems, and building robust firmware-to-dashboard telemetry pipelines.
-            </p>
-        </section>
-
-        <section id="experience">
-            <div class="section-header">
-                <h2>Experience</h2>
-                <div class="line"></div>
+    <div class="container">
+        <h2 style="margin-bottom: 2rem;">Work History</h2>
+        <div class="bento-grid">
+            <div class="bento-item large">
+                <h3 style="color: var(--primary);">Industrial IoT & Automation Intern</h3>
+                <p style="color: var(--dim); margin-bottom: 1rem;">IIT Delhi - AIA Foundation [cite: 13]</p>
+                <p>Developed high-performance sensor pipelines and telemetry systems using ESP-IDF[cite: 14]. Managed hardware validation and performed critical PCB debugging for smart manufacturing initiatives[cite: 15].</p>
             </div>
-            
-            <div class="experience-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <h3 style="color: var(--primary);">Industrial IoT & Automation Intern (Paid)</h3>
-                    <span style="color: var(--text-dim);">Jun 2025 — Dec 2025</span>
-                </div>
-                <p style="font-weight: 600; margin-bottom: 10px;">IIT Delhi - AIA Foundation for Smart Manufacturing</p>
-                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
-                    <li>Developed embedded firmware and sensor acquisition pipelines.</li>
-                    <li>Built firmware-to-dashboard telemetry systems.</li>
-                    <li>Debugged PCB-level issues and performed hardware validation.</li>
-                    <li>Conducted technical training on ThingWorx, IoT protocols, and Python.</li>
+            <div class="bento-item">
+                <h3 style="color: var(--primary);">Languages</h3>
+                <ul style="list-style: none; color: var(--dim);">
+                    <li>English (Pro) [cite: 50]</li>
+                    <li>Hindi (Pro) [cite: 50]</li>
+                    <li>Punjabi (Pro) [cite: 50]</li>
                 </ul>
             </div>
-
-            <div class="experience-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <h3 style="color: var(--primary);">Embedded Systems Trainee Intern</h3>
-                    <span style="color: var(--text-dim);">May 2024 — Aug 2024</span>
-                </div>
-                <p style="font-weight: 600; margin-bottom: 10px;">JKSD Infotech, Noida</p>
-                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
-                    <li>Configured STM32 peripherals using STM32CubeMX for sensor interfacing.</li>
-                    <li>Implemented Firebase and Blynk data logging dashboards.</li>
-                    <li>Designed PCB schematics, layouts, and Gerber files using EasyEDA.</li>
-                </ul>
+            <div class="bento-item">
+                <h3 style="color: var(--primary);">Education</h3>
+                <p>B.Tech (ECE) [cite: 11]</p>
+                <p style="font-size: 0.8rem; color: var(--dim);">ABES Engineering College (AKTU) [cite: 11]</p>
             </div>
-        </section>
-
-        <section id="projects">
-            <div class="section-header">
-                <h2>Featured Engineering Projects</h2>
-                <div class="line"></div>
+            <div class="bento-item large">
+                <h3 style="color: var(--primary);">Embedded Trainee Intern</h3>
+                <p style="color: var(--dim); margin-bottom: 1rem;">JKSD Infotech, Noida [cite: 17]</p>
+                <p>Configured STM32 peripherals via STM32CubeMX and designed robust PCB layouts and Gerber files using EasyEDA[cite: 18, 19].</p>
             </div>
+        </div>
 
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <span class="project-tag">STM32</span> <span class="project-tag">Raspberry Pi</span>
-                        <h3 style="margin-top:10px;">Desk Presence Detector</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 10px 0;">STM32 firmware with PIR + BH1750 sensors interfaced via I2C. Raspberry Pi 5 as master.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-info">
-                        <span class="project-tag">ESP-IDF</span> <span class="project-tag">Energy</span>
-                        <h3 style="margin-top:10px;">Energy Monitoring System</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 10px 0;">Real-time voltage, current, and power monitoring using ESP32 and PZEM-004T.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-info">
-                        <span class="project-tag">OpenCV</span> <span class="project-tag">Python</span>
-                        <h3 style="margin-top:10px;">AI Surveillance System</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 10px 0;">Raspberry Pi based motion detection using OpenCV with automated email alerts.</p>
-                    </div>
+        <h2 style="margin-top: 5rem; margin-bottom: 2rem;">Technical Stack</h2>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <h4>Firmware</h4>
+                <div style="margin-top: 10px;">
+                    <span class="tech-pill">ESP-IDF</span> <span class="tech-pill">STM32CubeMX</span>
+                    <span class="tech-pill">Embedded C</span> <span class="tech-pill">FreeRTOS</span>
                 </div>
             </div>
-        </section>
-
-        <section id="skills">
-            <div class="section-header">
-                <h2>Technical Toolkit</h2>
-                <div class="line"></div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-microchip"></i> Hardware & Embedded</h4>
-                    <div class="skill-group">
-                        <span class="skill-pill">ESP-IDF</span> <span class="skill-pill">STM32CubeMX</span>
-                        <span class="skill-pill">Raspberry Pi</span> <span class="skill-pill">PCB Design</span>
-                        <span class="skill-pill">FreeRTOS</span> <span class="skill-pill">EasyEDA</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-network-wired"></i> IoT & Protocols</h4>
-                    <div class="skill-group">
-                        <span class="skill-pill">UART/I2C/SPI</span> <span class="skill-pill">MQTT/HTTP</span>
-                        <span class="skill-pill">ThingWorx</span> <span class="skill-pill">Firebase</span>
-                        <span class="skill-pill">Modbus</span> <span class="skill-pill">Blynk</span>
-                    </div>
+            <div class="bento-item">
+                <h4>Communication</h4>
+                <div style="margin-top: 10px;">
+                    <span class="tech-pill">UART</span> <span class="tech-pill">I2C</span>
+                    <span class="tech-pill">SPI</span> <span class="tech-pill">MQTT</span>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="bento-item">
+                <h4>IoT Cloud</h4>
+                <div style="margin-top: 10px;">
+                    <span class="tech-pill">ThingWorx</span> <span class="tech-pill">Firebase</span>
+                    <span class="tech-pill">Blynk</span> <span class="tech-pill">ThingSpeak</span>
+                </div>
+            </div>
+        </div>
 
-    <footer>
-        <p>Devansh Dutt Pathak | Based in Delhi NCR & Chandigarh Tricity</p>
-        <p style="margin-top: 10px;">&copy; 2026. All rights reserved.</p>
+        <h2 style="margin-top: 5rem; margin-bottom: 2rem;">Engineering Projects</h2>
+        <div class="bento-grid">
+            <div class="project-card">
+                <div class="project-header"></div>
+                <div class="project-content">
+                    <h3>Desk Presence Detector</h3>
+                    <p style="color: var(--dim); font-size: 0.9rem; margin: 1rem 0;">STM32 firmware developed for PIR & BH1750 sensors with RPi 5 master debugged via UART logs[cite: 21, 23].</p>
+                    <span class="tech-pill">STM32F411RE</span> <span class="tech-pill">I2C</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header"></div>
+                <div class="project-content">
+                    <h3>Energy Monitoring System</h3>
+                    <p style="color: var(--dim); font-size: 0.9rem; margin: 1rem 0;">Real-time voltage and power telemetry using ESP32 and PZEM-004T[cite: 24, 26].</p>
+                    <span class="tech-pill">ESP-IDF</span> <span class="tech-pill">UART</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header"></div>
+                <div class="project-content">
+                    <h3>IoT Weather Station</h3>
+                    <p style="color: var(--dim); font-size: 0.9rem; margin: 1rem 0;">Cloud-published environmental sensing using ESP32 and DHT22[cite: 27, 28].</p>
+                    <span class="tech-pill">Firebase</span> <span class="tech-pill">Sensors</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 4rem 1rem; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem;">
+        <p>DEVANSH DUTT PATHAK // 2026 // EMBEDDED SYSTEMS ENGINEER</p>
+        <p>Delhi NCR | Chandigarh [cite: 3, 11]</p>
     </footer>
 
 </body>
