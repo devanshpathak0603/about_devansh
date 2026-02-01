@@ -1,4 +1,4 @@
-html_code = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,12 +6,12 @@ html_code = r"""<!DOCTYPE html>
   <meta name="description" content="Portfolio of Devansh Dutt Pathak, an Embedded Systems Developer specializing in ESP32 (ESP-IDF), STM32, Raspberry Pi, FreeRTOS basics, and Industrial IoT solutions." />
   <title>Devansh Dutt Pathak | Embedded Systems Developer</title>
 
-  <!-- Favicon (kept exactly as in your code) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/726/726056.png" />
 
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- OpenGraph / Social -->
   <meta property="og:title" content="Devansh Dutt Pathak | Embedded Systems Developer" />
@@ -22,24 +22,27 @@ html_code = r"""<!DOCTYPE html>
 
   <style>
     :root{
-      --bg-0:#0b1220;
-      --bg-1:#0d1117;
-      --card:#111827;
-      --card-2:#0f172a;
-      --text:#e6edf3;
-      --muted:#94a3b8;
-      --muted-2:#64748b;
-      --primary:#58a6ff;
-      --primary-2:#79c0ff;
-      --accent:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --ring: rgba(88,166,255,.35);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --shadow-2: 0 8px 18px rgba(0,0,0,.22);
-      --radius: 18px;
-      --radius-2: 14px;
-      --border: 1px solid rgba(255,255,255,.08);
+      --bg:#070A12;
+      --bg2:#0B1220;
+
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.04);
+
+      --text:#EAF2FF;
+      --muted:#A9B5D1;
+      --muted2:#6E7A95;
+
+      --primary:#7C3AED;      /* purple */
+      --primary2:#22D3EE;     /* cyan */
+      --accent:#22C55E;
+      --warn:#F59E0B;
+      --danger:#EF4444;
+
+      --border: 1px solid rgba(255,255,255,.10);
+      --radius: 22px;
+      --shadow: 0 25px 80px rgba(0,0,0,.55);
+      --shadow2: 0 10px 25px rgba(0,0,0,.35);
+      --ring: rgba(34,211,238,.25);
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -48,29 +51,30 @@ html_code = r"""<!DOCTYPE html>
       font-family:'Poppins',sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(88,166,255,.18), transparent 55%),
-        radial-gradient(900px 500px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
-        linear-gradient(to bottom, var(--bg-1), #0a0f1b);
+        radial-gradient(1000px 520px at 15% 0%, rgba(124,58,237,.22), transparent 55%),
+        radial-gradient(900px 520px at 85% 25%, rgba(34,211,238,.16), transparent 55%),
+        radial-gradient(800px 600px at 60% 95%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       line-height:1.6;
       overflow-x:hidden;
     }
 
-    a{color:var(--primary);text-decoration:none}
-    a:hover{color:var(--primary-2)}
+    a{color:var(--primary2);text-decoration:none}
+    a:hover{opacity:.92}
     img{max-width:100%;display:block}
 
     .container{max-width:1200px;margin:0 auto;padding:0 1.25rem}
-    section{padding:5rem 0}
+    section{padding:5.4rem 0}
     .grid{display:grid;gap:1.2rem}
 
     /* Header */
     .header{
       position:fixed;top:0;left:0;width:100%;
-      background: rgba(9,12,19,.72);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(7,10,18,.70);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
       z-index:1000;
-      transition: .25s ease;
+      transition:.25s ease;
     }
     .header .container{
       display:flex;align-items:center;justify-content:space-between;
@@ -78,24 +82,29 @@ html_code = r"""<!DOCTYPE html>
       gap:1rem;
     }
     .logo{
-      display:flex;align-items:center;gap:.55rem;
-      font-weight:800;font-size:1.1rem;
+      display:flex;align-items:center;gap:.65rem;
+      font-weight:900;font-size:1.08rem;
       letter-spacing:.2px;
       user-select:none;
     }
     .logo .chip{
-      width:38px;height:38px;border-radius:12px;
+      width:40px;height:40px;border-radius:14px;
       display:grid;place-items:center;
-      background: rgba(88,166,255,.12);
-      border: 1px solid rgba(88,166,255,.25);
-      box-shadow: 0 6px 22px rgba(88,166,255,.18);
+      background: linear-gradient(135deg, rgba(124,58,237,.25), rgba(34,211,238,.20));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 30px rgba(0,0,0,.40);
     }
-    .logo span b{color:var(--primary)}
-    nav ul{list-style:none;display:flex;gap:1.4rem;align-items:center}
+    .logo span b{
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav ul{list-style:none;display:flex;gap:1.1rem;align-items:center}
     nav a{
       color: var(--muted);
-      font-weight:600;
-      font-size:.95rem;
+      font-weight:800;
+      font-size:.92rem;
       padding:.35rem .25rem;
       position:relative;
     }
@@ -103,28 +112,32 @@ html_code = r"""<!DOCTYPE html>
       content:"";
       position:absolute;left:0;bottom:-6px;
       width:0;height:2px;border-radius:999px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
       transition: width .25s ease;
     }
+    nav a:hover{color:var(--text)}
     nav a:hover:after{width:100%}
+
+    .header-cta{display:flex;gap:.65rem;align-items:center}
 
     .nav-toggle{
       display:none;
       width:44px;height:44px;border-radius:14px;
       border: var(--border);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.05);
       color: var(--text);
       cursor:pointer;
       transition:.2s ease;
     }
     .nav-toggle:hover{transform:translateY(-1px)}
+
     .mobile-nav{
       display:none;
       position:fixed;
       inset: 70px 16px auto 16px;
-      background: rgba(15,23,42,.92);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 20px;
+      background: rgba(12,16,30,.92);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
       box-shadow: var(--shadow);
       padding: 14px;
       z-index: 1100;
@@ -132,16 +145,16 @@ html_code = r"""<!DOCTYPE html>
     .mobile-nav a{
       display:block;
       padding: 12px 12px;
-      border-radius: 14px;
+      border-radius: 16px;
       color: var(--text);
-      font-weight:600;
+      font-weight:800;
     }
     .mobile-nav a:hover{
-      background: rgba(88,166,255,.10);
-      color: var(--primary-2);
+      background: rgba(34,211,238,.10);
+      color: var(--primary2);
     }
 
-    @media (max-width: 860px){
+    @media (max-width: 980px){
       nav ul{display:none}
       .nav-toggle{display:inline-grid;place-items:center}
       .mobile-nav.show{display:block}
@@ -151,157 +164,171 @@ html_code = r"""<!DOCTYPE html>
     .btn-row{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-top:1.6rem}
     .btn{
       display:inline-flex;align-items:center;gap:.6rem;
-      padding:.85rem 1.1rem;
+      padding:.88rem 1.15rem;
       border-radius: 999px;
       border: var(--border);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.06);
       color: var(--text);
-      font-weight:700;
-      box-shadow: var(--shadow-2);
+      font-weight:900;
+      box-shadow: var(--shadow2);
       transition: .2s ease;
+      position:relative;
+      overflow:hidden;
     }
-    .btn:hover{transform: translateY(-2px); border-color: rgba(88,166,255,.32)}
+    .btn:hover{transform: translateY(-2px);border-color: rgba(34,211,238,.35)}
     .btn.primary{
-      background: linear-gradient(90deg, rgba(88,166,255,.95), rgba(121,192,255,.95));
-      border-color: rgba(88,166,255,.35);
-      color:#061018;
+      border:none;
+      color:#071018;
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
     }
     .btn.primary:hover{filter:saturate(1.08)}
     .btn.ghost{
       background: transparent;
-      border-color: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.14);
+    }
+    .btn.small{
+      padding:.70rem 1rem;
+      font-size:.92rem;
+      font-weight:950;
     }
 
     /* Hero */
     .hero{
-      padding-top: 8.5rem;
-      padding-bottom: 4.5rem;
+      padding-top: 8.8rem;
+      padding-bottom: 4.8rem;
       text-align:center;
     }
     .hero-inner{
       display:grid;
-      gap:2rem;
+      gap:2.2rem;
       place-items:center;
       max-width: 980px;
       margin: 0 auto;
     }
     .profile{
-      width: 175px;height:175px;border-radius: 999px;
+      width: 182px;height:182px;border-radius: 999px;
       padding: 7px;
-      background: linear-gradient(135deg, rgba(88,166,255,1), rgba(34,197,94,1));
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
       box-shadow: var(--shadow);
       position:relative;
     }
     .profile::after{
       content:"";
-      position:absolute;inset:-8px;
+      position:absolute;inset:-10px;
       border-radius:999px;
-      background: radial-gradient(circle at 30% 20%, rgba(88,166,255,.22), transparent 58%);
-      filter: blur(6px);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(124,58,237,.30), transparent 58%),
+        radial-gradient(circle at 80% 70%, rgba(34,211,238,.22), transparent 58%);
+      filter: blur(8px);
       z-index:-1;
     }
     .profile img{
       width:100%;height:100%;border-radius:999px;
       object-fit:cover;
-      border: 3px solid rgba(9,12,19,.55);
+      border: 3px solid rgba(7,10,18,.60);
     }
     .tagline{
       display:inline-flex;gap:.55rem;flex-wrap:wrap;justify-content:center;
       margin: .75rem auto 0;
-      max-width: 860px;
+      max-width: 920px;
     }
     .pill{
-      padding:.45rem .75rem;
+      padding:.45rem .78rem;
       border-radius:999px;
       background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.10);
       color: var(--muted);
-      font-weight:700;
+      font-weight:900;
       font-size:.88rem;
     }
     .hero h1{
-      font-size: clamp(2.2rem, 5vw, 3.3rem);
-      font-weight: 900;
-      letter-spacing: -.8px;
+      font-size: clamp(2.2rem, 5vw, 3.35rem);
+      font-weight: 950;
+      letter-spacing: -1px;
       line-height:1.15;
       margin-top: .6rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      background: linear-gradient(90deg, var(--text), rgba(34,211,238,.98));
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
     .hero h2{
       font-size: 1.05rem;
       color: var(--muted);
-      font-weight: 600;
-      margin-top:.4rem;
+      font-weight: 800;
+      margin-top:.45rem;
     }
     .summary{
       color: var(--muted);
       max-width: 900px;
-      margin: 1.25rem auto 0;
+      margin: 1.2rem auto 0;
       font-size: 1.05rem;
-      line-height: 1.9;
+      line-height: 1.95;
     }
     .summary b{color: var(--text)}
-
     .social{
       display:flex;gap:1rem;justify-content:center;
-      margin-top:1.1rem;flex-wrap:wrap;
+      margin-top:1.15rem;flex-wrap:wrap;
     }
     .icon-link{
-      width:44px;height:44px;border-radius: 16px;
+      width:46px;height:46px;border-radius: 18px;
       display:grid;place-items:center;
       border: var(--border);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.06);
       color: var(--text);
       transition:.2s ease;
     }
-    .icon-link:hover{transform: translateY(-3px); border-color: rgba(88,166,255,.28); color: var(--primary-2)}
+    .icon-link:hover{
+      transform: translateY(-3px);
+      border-color: rgba(34,211,238,.30);
+      color: var(--primary2);
+    }
 
     /* Section heading */
     .section-title{
       text-align:center;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.3rem;
     }
     .section-title h3{
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.25rem;
+      font-weight: 950;
       color: var(--text);
-      letter-spacing: -.4px;
+      letter-spacing: -.6px;
     }
     .section-title p{
       color: var(--muted);
       margin-top:.35rem;
-      font-weight:600;
+      font-weight:800;
     }
     .underline{
-      width: 74px; height: 4px;
+      width: 78px; height: 4px;
       border-radius: 999px;
-      margin: .95rem auto 0;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      margin: 1rem auto 0;
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
     }
 
     /* Cards */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background: linear-gradient(180deg, var(--card), var(--card2));
       border: var(--border);
       border-radius: var(--radius);
       padding: 1.6rem;
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow2);
       transition: transform .25s ease, border-color .25s ease;
     }
-    .card:hover{transform: translateY(-6px); border-color: rgba(88,166,255,.22)}
-    .card h4{font-size:1.1rem;font-weight:900;color:var(--text)}
+    .card:hover{
+      transform: translateY(-7px);
+      border-color: rgba(34,211,238,.22);
+    }
+    .card h4{font-size:1.1rem;font-weight:950;color:var(--text)}
     .muted{color:var(--muted)}
     .small{font-size:.95rem}
 
     /* About */
     .about-grid{
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.3fr .7fr;
       align-items:stretch;
     }
     @media (max-width: 980px){.about-grid{grid-template-columns: 1fr}}
-
     .highlights{
       display:grid;
       gap:.75rem;
@@ -310,12 +337,12 @@ html_code = r"""<!DOCTYPE html>
     .highlight{
       display:flex;gap:.8rem;align-items:flex-start;
       padding:.95rem 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
     }
     .highlight i{
-      color: var(--primary);
+      color: var(--primary2);
       margin-top:.2rem;
       font-size: 1.05rem;
     }
@@ -323,28 +350,25 @@ html_code = r"""<!DOCTYPE html>
     .highlight span{color:var(--muted)}
 
     /* Skills */
-    .skills-grid{
-      grid-template-columns: repeat(12, 1fr);
-    }
+    .skills-grid{grid-template-columns: repeat(12, 1fr);}
     .skill-card{grid-column: span 4}
     @media (max-width: 980px){.skill-card{grid-column: span 6}}
     @media (max-width: 620px){.skill-card{grid-column: span 12}}
-
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+    .chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.9rem}
     .chip{
-      font-weight:700;
+      font-weight:900;
       font-size:.86rem;
-      padding:.42rem .62rem;
+      padding:.42rem .66rem;
       border-radius:999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
       color: var(--muted);
     }
-    .chip.good{border-color: rgba(34,197,94,.24); color: rgba(196,255,214,.92)}
-    .chip.primary{border-color: rgba(88,166,255,.24); color: rgba(198,228,255,.92)}
+    .chip.good{border-color: rgba(34,197,94,.25); color: rgba(198,255,214,.92)}
+    .chip.primary{border-color: rgba(34,211,238,.26); color: rgba(190,250,255,.92)}
     .chip.warn{border-color: rgba(245,158,11,.25); color: rgba(255,235,200,.92)}
 
-    /* Experience & Education */
+    /* Experience / Education */
     .timeline{
       display:grid;
       grid-template-columns: 1fr;
@@ -357,35 +381,32 @@ html_code = r"""<!DOCTYPE html>
       justify-content:space-between;align-items:flex-start;
       margin-bottom: .85rem;
     }
-    .role-head .left{
-      display:grid;gap:.15rem;
-    }
+    .role-head .left{display:grid;gap:.15rem}
     .badge{
       display:inline-flex;align-items:center;gap:.45rem;
-      padding:.38rem .7rem;border-radius:999px;
-      background: rgba(88,166,255,.10);
-      border: 1px solid rgba(88,166,255,.22);
-      color: rgba(198,228,255,.92);
-      font-weight:800;
+      padding:.38rem .72rem;border-radius:999px;
+      background: rgba(34,211,238,.10);
+      border: 1px solid rgba(34,211,238,.20);
+      color: rgba(190,250,255,.92);
+      font-weight:950;
       font-size:.82rem;
       width: fit-content;
     }
     .date{
-      color: var(--muted-2);
-      font-weight:800;
+      color: var(--muted2);
+      font-weight:950;
       font-size:.9rem;
     }
     ul.clean{
       margin-top:.85rem;
       padding-left: 1.2rem;
       color: var(--muted);
+      font-weight:700;
     }
     ul.clean li{margin:.35rem 0}
 
     /* Projects */
-    .projects-grid{
-      grid-template-columns: repeat(12, 1fr);
-    }
+    .projects-grid{grid-template-columns: repeat(12, 1fr);}
     .project{grid-column: span 6}
     @media (max-width: 900px){.project{grid-column: span 12}}
     .project .top{
@@ -394,7 +415,7 @@ html_code = r"""<!DOCTYPE html>
     }
     .project .meta{
       color: var(--muted);
-      font-weight:700;
+      font-weight:900;
       font-size:.92rem;
     }
 
@@ -407,16 +428,41 @@ html_code = r"""<!DOCTYPE html>
     .cert{grid-column: span 6}
     @media (max-width: 900px){.cert{grid-column: span 12}}
 
+    /* Download CV */
+    .download-wrap{max-width:980px;margin:0 auto}
+    .download-card{
+      border-radius: 28px;
+      padding: 2rem 1.6rem;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(1200px 500px at 25% 10%, rgba(124,58,237,.22), transparent 55%),
+        radial-gradient(900px 500px at 80% 80%, rgba(34,211,238,.18), transparent 60%),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      text-align:center;
+    }
+    .download-card h4{
+      font-size:1.35rem;
+      font-weight:950;
+      letter-spacing:-.3px;
+    }
+    .download-card p{
+      margin-top:.6rem;
+      color: var(--muted);
+      font-weight:800;
+      line-height:1.9;
+    }
+
     /* Footer */
     footer{
       padding: 3.2rem 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-      background: rgba(9,12,19,.65);
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(7,10,18,.70);
     }
     .footer-inner{
       display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:space-between;align-items:center
     }
-    .foot-left{color:var(--muted);font-weight:700}
+    .foot-left{color:var(--muted);font-weight:900}
     .foot-right{display:flex;gap:.8rem;align-items:center}
 
     /* Fade In */
@@ -428,9 +474,9 @@ html_code = r"""<!DOCTYPE html>
       position:fixed;right:20px;bottom:20px;
       width:62px;height:62px;border-radius: 18px;
       display:grid;place-items:center;
-      border: 1px solid rgba(88,166,255,.28);
-      background: linear-gradient(90deg, rgba(88,166,255,.95), rgba(121,192,255,.95));
-      color:#061018;
+      border: 1px solid rgba(34,211,238,.25);
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
+      color:#071018;
       cursor:pointer;
       box-shadow: var(--shadow);
       z-index:1200;
@@ -439,29 +485,29 @@ html_code = r"""<!DOCTYPE html>
     .chat-toggle:hover{transform: translateY(-3px) scale(1.02)}
     .chatbot{
       position:fixed;right:20px;bottom:96px;
-      width: 340px;height: 470px;
-      border-radius: 22px;
+      width: 350px;height: 475px;
+      border-radius: 24px;
       overflow:hidden;
       display:none;
       flex-direction:column;
-      background: rgba(15,23,42,.88);
+      background: rgba(12,16,30,.88);
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--shadow);
       z-index:1200;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
     }
     .chatbot.show{display:flex}
     .chat-header{
       padding: 14px 16px;
       display:flex;align-items:center;justify-content:space-between;
-      font-weight:900;
-      background: linear-gradient(90deg, rgba(88,166,255,.85), rgba(34,197,94,.70));
-      color:#07111b;
+      font-weight:950;
+      background: linear-gradient(90deg, var(--primary), var(--primary2));
+      color:#071018;
     }
     .close-btn{
       width:34px;height:34px;border-radius: 12px;
       display:grid;place-items:center;
-      background: rgba(0,0,0,.12);
+      background: rgba(0,0,0,.14);
       cursor:pointer;
     }
     .chat-body{
@@ -475,46 +521,46 @@ html_code = r"""<!DOCTYPE html>
     .chat-message{
       max-width: 88%;
       padding: 10px 12px;
-      border-radius: 16px;
-      font-weight:700;
+      border-radius: 18px;
+      font-weight:900;
       font-size:.93rem;
       line-height:1.45;
     }
     .chat-message.bot{
       align-self:flex-start;
       background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.10);
       color: var(--text);
     }
     .chat-message.user{
       align-self:flex-end;
-      background: rgba(88,166,255,.95);
-      color:#061018;
-      border: 1px solid rgba(88,166,255,.18);
+      background: rgba(34,211,238,.95);
+      color:#071018;
+      border: 1px solid rgba(34,211,238,.18);
     }
     .chat-footer{
       display:flex;gap:.6rem;
       padding: 14px;
       border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(9,12,19,.45);
+      background: rgba(7,10,18,.55);
     }
     #chat-input{
       flex:1;
       padding: 11px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(11,18,32,.65);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(11,18,32,.70);
       color: var(--text);
-      font-weight:700;
+      font-weight:900;
       outline:none;
     }
     #chat-input:focus{box-shadow: 0 0 0 4px var(--ring)}
     #send-btn{
       width: 48px;
       border-radius: 14px;
-      border: 1px solid rgba(88,166,255,.30);
-      background: rgba(88,166,255,.92);
-      color:#061018;
+      border: 1px solid rgba(34,211,238,.30);
+      background: rgba(34,211,238,.92);
+      color:#071018;
       cursor:pointer;
       transition:.2s ease;
     }
@@ -543,13 +589,25 @@ html_code = r"""<!DOCTYPE html>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#download">Download CV</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
-        <i class="fas fa-bars"></i>
-      </button>
+      <div class="header-cta">
+        <!-- ✅ CV Direct Link -->
+        <a class="btn primary small"
+           href="https://devanshpathak.netlify.app/Document_CV.pdf"
+           target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-pdf"></i> CV
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+
     <div class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -557,6 +615,8 @@ html_code = r"""<!DOCTYPE html>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
       <a href="#certifications">Certifications</a>
+      <a href="#download">Download CV</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
@@ -564,7 +624,6 @@ html_code = r"""<!DOCTYPE html>
   <section class="hero fade-in" id="home">
     <div class="container hero-inner">
       <div class="profile" aria-label="Profile photo">
-        <!-- Photo link kept exactly as you provided -->
         <img src="https://i.postimg.cc/qMJ1cY5V/Whats-App-Image-2025-04-11-at-10-23-07.jpg" alt="Devansh Dutt Pathak" />
       </div>
 
@@ -584,7 +643,8 @@ html_code = r"""<!DOCTYPE html>
         <p class="summary">
           Embedded systems developer with hands-on experience in <b>ESP32 (ESP-IDF)</b>, <b>STM32</b>, <b>Raspberry Pi</b> and sensor interfacing.
           Familiar with real-time firmware development using <b>FreeRTOS basics</b> (tasks, scheduling concepts).
-          Strong in embedded protocols (<b>UART, I2C, SPI</b>), firmware debugging using UART logs, and building real-time acquisition + monitoring systems for IoT / industrial applications.
+          Strong in embedded communication protocols (<b>UART, I2C, SPI</b>), firmware debugging using UART logs, and building real-time acquisition
+          + monitoring systems for IoT / industrial applications.
         </p>
 
         <div class="social" aria-label="Contact links">
@@ -597,14 +657,18 @@ html_code = r"""<!DOCTYPE html>
         <div class="btn-row">
           <a class="btn primary" href="#projects"><i class="fas fa-rocket"></i> View Projects</a>
           <a class="btn ghost" href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
-          <a class="btn ghost" href="https://devanshpathak.netlify.app" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Live Portfolio</a>
+          <a class="btn ghost"
+             href="https://devanshpathak.netlify.app/Document_CV.pdf"
+             target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <main>
-    <!-- About (added, navbar was broken earlier) -->
+    <!-- About -->
     <section id="about" class="fade-in">
       <div class="container">
         <div class="section-title">
@@ -615,7 +679,7 @@ html_code = r"""<!DOCTYPE html>
 
         <div class="grid about-grid">
           <div class="card">
-            <h4><i class="fas fa-user-gear" style="color:var(--primary)"></i> Summary</h4>
+            <h4><i class="fas fa-user-gear" style="color:var(--primary2)"></i> Summary</h4>
             <p class="muted" style="margin-top:.7rem">
               I focus on building <b>reliable embedded firmware + hardware interfacing</b> for industrial IoT / monitoring systems.
               My work includes <b>sensor acquisition pipelines</b>, telemetry, device-to-dashboard workflows,
@@ -695,7 +759,7 @@ html_code = r"""<!DOCTYPE html>
 
         <div class="grid skills-grid">
           <div class="card skill-card">
-            <h4><i class="fas fa-microchip" style="color:var(--primary)"></i> Embedded</h4>
+            <h4><i class="fas fa-microchip" style="color:var(--primary2)"></i> Embedded</h4>
             <div class="chips">
               <span class="chip primary">ESP32</span>
               <span class="chip primary">ESP-IDF</span>
@@ -731,7 +795,7 @@ html_code = r"""<!DOCTYPE html>
           </div>
 
           <div class="card skill-card">
-            <h4><i class="fas fa-cloud" style="color:var(--primary)"></i> IoT & Cloud</h4>
+            <h4><i class="fas fa-cloud" style="color:var(--primary2)"></i> IoT & Cloud</h4>
             <div class="chips">
               <span class="chip primary">MQTT</span>
               <span class="chip">HTTP</span>
@@ -781,7 +845,7 @@ html_code = r"""<!DOCTYPE html>
               <div class="left">
                 <span class="badge"><i class="fas fa-building-columns"></i> Internship (Paid)</span>
                 <h4>Industrial IoT & Automation Intern</h4>
-                <div class="muted" style="font-weight:800">IIT Delhi – AIA Foundation for Smart Manufacturing</div>
+                <div class="muted" style="font-weight:950">IIT Delhi – AIA Foundation for Smart Manufacturing</div>
               </div>
               <div class="date">Jun 2025 – Dec 2025</div>
             </div>
@@ -798,7 +862,7 @@ html_code = r"""<!DOCTYPE html>
               <div class="left">
                 <span class="badge"><i class="fas fa-code"></i> Internship</span>
                 <h4>Embedded Systems Trainee Intern</h4>
-                <div class="muted" style="font-weight:800">JKSD Infotech Pvt. Ltd., Noida</div>
+                <div class="muted" style="font-weight:950">JKSD Infotech Pvt. Ltd., Noida</div>
               </div>
               <div class="date">May 2024 – Aug 2024</div>
             </div>
@@ -874,7 +938,7 @@ html_code = r"""<!DOCTYPE html>
               <div class="meta">ESP8266 • XKC-Y25V • ThingSpeak</div>
             </div>
             <ul class="clean">
-              <li>Level monitoring using NodeMCU ESP8266 + capacitive sensor</li>
+              <li>Level monitoring system using NodeMCU ESP8266 and capacitive sensor</li>
               <li>Pushed readings to ThingSpeak for monitoring</li>
             </ul>
           </div>
@@ -917,7 +981,7 @@ html_code = r"""<!DOCTYPE html>
             <div class="role-head">
               <div class="left">
                 <h4>B.Tech (ECE)</h4>
-                <div class="muted" style="font-weight:800">ABES Engineering College (AKTU, Lucknow)</div>
+                <div class="muted" style="font-weight:950">ABES Engineering College (AKTU, Lucknow)</div>
               </div>
               <div class="date">2026</div>
             </div>
@@ -927,7 +991,7 @@ html_code = r"""<!DOCTYPE html>
             <div class="role-head">
               <div class="left">
                 <h4>CBSE (12th)</h4>
-                <div class="muted" style="font-weight:800">K.L. International School, Meerut</div>
+                <div class="muted" style="font-weight:950">K.L. International School, Meerut</div>
               </div>
               <div class="date">2022</div>
             </div>
@@ -948,18 +1012,51 @@ html_code = r"""<!DOCTYPE html>
         <div class="grid cert-grid">
           <div class="card cert">
             <h4>Analog ICs & VLSI</h4>
-            <p class="muted" style="font-weight:800;margin-top:.5rem">NIT Delhi (2025)</p>
+            <p class="muted" style="font-weight:950;margin-top:.5rem">NIT Delhi (2025)</p>
             <p class="muted small" style="margin-top:.6rem">Course on Analog ICs and Semiconductor advancements in VLSI.</p>
           </div>
           <div class="card cert">
             <h4>Networking Fundamentals</h4>
-            <p class="muted" style="font-weight:800;margin-top:.5rem">ABES & PyNetLabs (2025)</p>
+            <p class="muted" style="font-weight:950;margin-top:.5rem">ABES & PyNetLabs (2025)</p>
             <p class="muted small" style="margin-top:.6rem">Workshop on networking fundamentals.</p>
           </div>
           <div class="card cert">
             <h4>Robotics (ROS)</h4>
-            <p class="muted" style="font-weight:800;margin-top:.5rem">ABES (2025)</p>
+            <p class="muted" style="font-weight:950;margin-top:.5rem">ABES (2025)</p>
             <p class="muted small" style="margin-top:.6rem">Robotics workshop focused on ROS and startup funding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download CV -->
+    <section id="download" class="fade-in">
+      <div class="container">
+        <div class="section-title">
+          <h3>Download CV</h3>
+          <p>Direct CV link</p>
+          <div class="underline"></div>
+        </div>
+
+        <div class="download-wrap">
+          <div class="download-card">
+            <h4><i class="fa-solid fa-file-pdf" style="color:var(--danger)"></i> Devansh Dutt Pathak – Resume</h4>
+            <p>
+              Use the official CV link below:<br/>
+              <a href="https://devanshpathak.netlify.app/Document_CV.pdf" target="_blank" rel="noopener">
+                <b>devanshpathak.netlify.app/Document_CV.pdf</b>
+              </a>
+            </p>
+            <div class="btn-row">
+              <a class="btn primary"
+                 href="https://devanshpathak.netlify.app/Document_CV.pdf"
+                 target="_blank" rel="noopener">
+                <i class="fa-solid fa-download"></i> View / Download CV
+              </a>
+              <a class="btn ghost" href="#contact">
+                <i class="fa-solid fa-paper-plane"></i> Contact Me
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -976,7 +1073,7 @@ html_code = r"""<!DOCTYPE html>
 
         <div class="grid" style="max-width:980px;margin:0 auto">
           <div class="card">
-            <h4><i class="fas fa-paper-plane" style="color:var(--primary)"></i> Reach me</h4>
+            <h4><i class="fas fa-paper-plane" style="color:var(--primary2)"></i> Reach me</h4>
             <p class="muted" style="margin-top:.8rem">
               Email: <a href="mailto:er.devanshpathak@gmail.com"><b>er.devanshpathak@gmail.com</b></a><br/>
               Phone: <a href="tel:+919818958116"><b>+91 98189 58116</b></a><br/>
@@ -985,6 +1082,11 @@ html_code = r"""<!DOCTYPE html>
             <div class="btn-row" style="justify-content:flex-start;margin-top:1.1rem">
               <a class="btn primary" href="mailto:er.devanshpathak@gmail.com"><i class="fas fa-envelope"></i> Email</a>
               <a class="btn ghost" href="tel:+919818958116"><i class="fas fa-phone"></i> Call</a>
+              <a class="btn ghost"
+                 href="https://devanshpathak.netlify.app/Document_CV.pdf"
+                 target="_blank" rel="noopener">
+                <i class="fa-solid fa-file-pdf"></i> CV
+              </a>
             </div>
           </div>
         </div>
@@ -992,6 +1094,7 @@ html_code = r"""<!DOCTYPE html>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
       <div class="foot-left">
@@ -1012,7 +1115,7 @@ html_code = r"""<!DOCTYPE html>
     </div>
     <div class="chat-body" id="chat-body">
       <div class="chat-message bot">
-        Hi! Ask me about Devansh's skills (ESP-IDF/STM32), experience (IIT Delhi/JKSD), or projects.
+        Hi! Ask me about Devansh's skills (ESP-IDF/STM32), experience (IIT Delhi/JKSD), projects, or CV.
       </div>
     </div>
     <div class="chat-footer">
@@ -1048,7 +1151,7 @@ html_code = r"""<!DOCTYPE html>
       a.addEventListener("click", () => mobileNav.classList.remove("show"));
     });
 
-    // Chatbot toggle (improved)
+    // Chatbot
     const toggleBtn = document.getElementById("chat-toggle");
     const chatbot = document.getElementById("chatbot");
     const closeBtn = document.getElementById("close-chat");
@@ -1065,13 +1168,10 @@ html_code = r"""<!DOCTYPE html>
     toggleBtn.addEventListener("click", () => toggleChat());
     closeBtn.addEventListener("click", () => toggleChat(false));
 
-    // Close chat on outside click (desktop-friendly)
     document.addEventListener("click", (e) => {
       const clickedInsideChat = chatbot.contains(e.target);
       const clickedToggle = toggleBtn.contains(e.target);
-      if (!clickedInsideChat && !clickedToggle) {
-        chatbot.classList.remove("show");
-      }
+      if (!clickedInsideChat && !clickedToggle) chatbot.classList.remove("show");
     });
 
     function addMessage(text, sender) {
@@ -1087,44 +1187,41 @@ html_code = r"""<!DOCTYPE html>
 
       const intents = [
         {
+          keys: ["cv", "resume", "download"],
+          answer: "You can directly view/download the CV here: https://devanshpathak.netlify.app/Document_CV.pdf"
+        },
+        {
           keys: ["skills", "tech stack", "stack", "technologies"],
-          answer:
-            "Core skills: ESP32 (ESP-IDF), STM32 (CubeMX), Raspberry Pi, Embedded C, FreeRTOS basics, UART/I2C/SPI, MQTT/HTTP/REST, Firebase/Blynk/ThingSpeak/ThingWorx, PCB design (EasyEDA), debugging & validation."
+          answer: "Core skills: ESP32 (ESP-IDF), STM32 (CubeMX), Raspberry Pi, Embedded C, FreeRTOS basics, UART/I2C/SPI, MQTT/HTTP/REST, Firebase/Blynk/ThingSpeak/ThingWorx, PCB design (EasyEDA), debugging & validation."
         },
         {
           keys: ["experience", "intern", "iit", "jksd"],
-          answer:
-            "Experience: Industrial IoT & Automation Intern (Paid) at IIT Delhi – AIA Foundation (Jun 2025 – Dec 2025). Earlier: Embedded Systems Trainee Intern at JKSD Infotech, Noida (May 2024 – Aug 2024)."
+          answer: "Experience: IIT Delhi (Jun 2025 – Dec 2025) as Industrial IoT & Automation Intern (Paid). Earlier: JKSD Infotech Noida (May 2024 – Aug 2024) as Embedded Systems Trainee Intern."
         },
         {
           keys: ["projects", "project", "work"],
-          answer:
-            "Projects include Desk Presence Detector (STM32F411RE + PIR + BH1750 + Raspberry Pi 5), Energy Monitoring (ESP32 + PZEM-004T), IoT Weather Station (ESP32 + DHT22 + Firebase), Smart Home Automation (ESP32 + Blynk), Saline Level Monitoring (ESP8266 + XKC-Y25V + ThingSpeak), Raspberry Pi Surveillance (OpenCV + Email alerts), and Voice-Controlled Appliances (ESP32 + IFTTT)."
+          answer: "Projects: Desk Presence Detector (STM32F411RE + PIR + BH1750 + Raspberry Pi 5), Energy Monitoring (ESP32 + PZEM-004T), IoT Weather Station (ESP32 + DHT22 + Firebase), Smart Home Automation (ESP32 + Blynk), Saline Level Monitoring (ESP8266 + XKC-Y25V + ThingSpeak), Raspberry Pi Surveillance (OpenCV + Email alerts), Voice-Controlled Appliances (ESP32 + IFTTT)."
         },
         {
           keys: ["education", "college", "degree"],
-          answer:
-            "Education: B.Tech (ECE), ABES Engineering College (AKTU, Lucknow) – 2026. CBSE (12th), K.L. International School, Meerut – 2022."
+          answer: "Education: B.Tech (ECE), ABES Engineering College (AKTU) – 2026. CBSE (12th), K.L. International School – 2022."
         },
         {
           keys: ["certification", "certifications", "workshop"],
-          answer:
-            "Certifications: Analog ICs & VLSI (NIT Delhi, 2025), Networking Fundamentals (ABES & PyNetLabs, 2025), Robotics (ROS) workshop (ABES, 2025)."
+          answer: "Certifications: Analog ICs & VLSI (NIT Delhi, 2025), Networking Fundamentals (ABES & PyNetLabs, 2025), Robotics (ROS) (ABES, 2025)."
         },
         {
           keys: ["contact", "email", "phone", "linkedin"],
-          answer:
-            "Contact: er.devanshpathak@gmail.com | +91 9818958116 | LinkedIn: linkedin.com/in/workwithdevansh | Portfolio: devanshpathak.netlify.app"
+          answer: "Contact: er.devanshpathak@gmail.com | +91 9818958116 | LinkedIn: linkedin.com/in/workwithdevansh | Portfolio: devanshpathak.netlify.app"
         },
         {
           keys: ["hello", "hi", "hey"],
-          answer:
-            "Hi! You can ask about Devansh's skills (ESP-IDF/STM32), internships, or embedded projects."
+          answer: "Hi! You can ask about Devansh's skills (ESP-IDF/STM32), internships, projects, or CV."
         }
       ];
 
       const found = intents.find(i => i.keys.some(k => lower.includes(k)));
-      return found ? found.answer : "I can help with: skills, projects, experience, education, certifications, or contact details.";
+      return found ? found.answer : "I can help with: CV link, skills, projects, experience, education, certifications, or contact details.";
     }
 
     function sendMessage() {
